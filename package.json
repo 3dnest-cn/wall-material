@@ -1,0 +1,22 @@
+{
+  "name": "@3dnest/wall-material",
+  "version": "0.0.0",
+  "description": "Provide the painting process of doors and Windows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3dnest-cn/wall-material.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3dnest-cn/wall-material/issues"
+  },
+  "homepage": "https://github.com/3dnest-cn/wall-material#readme",
+  "devDependencies": {
+    "lerna": "^6.0.1"
+  }
+}
