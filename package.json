@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/3dnest-cn/wall-material#readme",
   "devDependencies": {
+    "eslint": "^8.26.0",
     "lerna": "^6.0.1"
   }
 }

@@ -2,9 +2,10 @@ import * as PIXI from 'pixi.js';
 import * as WM from './index.js';
 
 const app = new PIXI.Application({
-	width: 1000,
+	width: 1500,
 	height: 1000,
-	backgroundColor: 0xeef0f1,
+	// backgroundColor: 0xeef0f1,
+	backgroundColor: 0x87CEFA,
 	antialias: true
 });
 
@@ -17,7 +18,7 @@ const singleDoorContextA = {
 	height: 30,
 	fliped: false,
 	scale: 10
-}
+};
 
 app.stage.addChild(WM.Door.SingleDoor.render(singleDoorGraphicsA, singleDoorContextA));
 
@@ -31,7 +32,7 @@ const singleDoorContextB = {
 	height: 30,
 	fliped: true,
 	scale: 10
-}
+};
 
 app.stage.addChild(WM.Door.SingleDoor.render(singleDoorGraphicsB, singleDoorContextB));
 
@@ -44,7 +45,7 @@ const doubleDoorContext = {
 	width: 300,
 	height: 30,
 	scale: 10
-}
+};
 
 app.stage.addChild(WM.Door.DoubleDoor.render(doubleDoorGraphics, doubleDoorContext));
 
@@ -78,6 +79,58 @@ app.stage.addChild(WM.Door.SlidingDoor.render(slidingDoorGraphicsB, slidingDoorC
 slidingDoorGraphicsB.x = 850;
 slidingDoorGraphicsB.y = 120;
 
+// parentDoor
+const parentDoorGraphicsA = new PIXI.Graphics();
+const parentDoorContextA = {
+	width: 300,
+	height: 30,
+	fliped: true,
+	scale: 10
+};
+
+app.stage.addChild(WM.Door.ParentDoor.render(parentDoorGraphicsA, parentDoorContextA));
+
+parentDoorGraphicsA.x = 1200;
+parentDoorGraphicsA.y = 200;
+
+const parentDoorGraphicsB = new PIXI.Graphics();
+const parentDoorContextB = {
+	width: 300,
+	height: 30,
+	fliped: false,
+	scale: 10
+};
+
+app.stage.addChild(WM.Door.ParentDoor.render(parentDoorGraphicsB, parentDoorContextB));
+
+parentDoorGraphicsB.x = 1200;
+parentDoorGraphicsB.y = 400;
+// liftdoor
+const liftDoorGraphics = new PIXI.Graphics();
+const liftDoorContext = {
+	width: 150,
+	height: 30,
+	scale: 10
+};
+
+app.stage.addChild(WM.Door.LiftDoor.render(liftDoorGraphics, liftDoorContext));
+
+liftDoorGraphics.x = 1200;
+liftDoorGraphics.y = 500;
+
+// bealock
+const bealockGraphics = new PIXI.Graphics();
+const bealockContext = {
+	width: 150,
+	height: 30,
+	scale: 10
+};
+
+app.stage.addChild(WM.Door.Bealock.render(bealockGraphics, bealockContext));
+
+bealockGraphics.x = 900;
+bealockGraphics.y = 200;
+
 // window
 const windowGraphics = new PIXI.Graphics();
 const windowContext = {
@@ -86,7 +139,7 @@ const windowContext = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.BasicWindow.render(windowGraphics, windowContext))
+app.stage.addChild(WM.Window.BasicWindow.render(windowGraphics, windowContext));
 
 windowGraphics.x = 100;
 windowGraphics.y = 300;
@@ -144,33 +197,6 @@ app.stage.addChild(WM.Window.FloorWindow.render(floorWindowGraphics, floorWindow
 floorWindowGraphics.x = 110;
 floorWindowGraphics.y = 360;
 
-// parentDoor
-const parentDoorGraphics = new PIXI.Graphics();
-const parentDoorContext = {
-	width: 150,
-	height: 30,
-	fliped: false,
-	scale: 10
-}
-
-app.stage.addChild(WM.Door.ParentDoor.render(parentDoorGraphics, parentDoorContext));
-
-parentDoorGraphics.x = 110;
-parentDoorGraphics.y = 410;
-
-// bealock
-const bealockGraphics = new PIXI.Graphics();
-const bealockContext = {
-	width: 150,
-	height: 30,
-	scale: 10
-};
-
-app.stage.addChild(WM.Door.Bealock.render(bealockGraphics, bealockContext));
-
-bealockGraphics.x = 310;
-bealockGraphics.y = 410;
-
 // LWindow
 const LWindowGraphicsA = new PIXI.Graphics();
 const LWindowContextA = {
@@ -179,7 +205,7 @@ const LWindowContextA = {
 	leftWallThickness: 20,
 	rightWallThickness: 20,
 	scale: 10
-}
+};
 
 app.stage.addChild(WM.Window.LWindow.render(LWindowGraphicsA, LWindowContextA));
 
@@ -193,7 +219,7 @@ const LWindowContextB = {
 	leftWallThickness: 20,
 	rightWallThickness: 30,
 	scale: 10
-}
+};
 
 app.stage.addChild(WM.Window.LWindow.render(LWindowGraphicsB, LWindowContextB));
 
@@ -279,9 +305,9 @@ const UBoilerWindowContextA = {
 	centerWallThickness: 20,
 	rightWallThickness: 20,
 	scale: 10
-}
+};
 
-app.stage.addChild(WM.Window.UBoilerWindow.render(UBoilerWindowGraphicsA, UBoilerWindowContextA))
+app.stage.addChild(WM.Window.UBoilerWindow.render(UBoilerWindowGraphicsA, UBoilerWindowContextA));
 
 UBoilerWindowGraphicsA.x = 800;
 UBoilerWindowGraphicsA.y = 500;
@@ -298,9 +324,9 @@ const UBoilerWindowContextB = {
 	centerWallThickness: 30,
 	rightWallThickness: 10,
 	scale: 10
-}
+};
 
-app.stage.addChild(WM.Window.UBoilerWindow.render(UBoilerWindowGraphicsB, UBoilerWindowContextB))
+app.stage.addChild(WM.Window.UBoilerWindow.render(UBoilerWindowGraphicsB, UBoilerWindowContextB));
 
 UBoilerWindowGraphicsB.x = 800;
 UBoilerWindowGraphicsB.y = 700;
