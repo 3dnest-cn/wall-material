@@ -10,17 +10,17 @@ export const LiftDoor = {
 
 		graphics
 			.lineStyle(lineWidth, color.line)
-			.drawRect(0, -height/2, width, height)
-			.lineStyle(1000/width, color.line)
+			.drawRect(0, 0, width, height)
+			.lineStyle(lineWidth * 2, color.line)
+			.moveTo(width * 3/17, height/2)
+			.lineTo(width * 14/17, height/2)
+			.lineStyle(lineWidth * 2, color.line)
 			.moveTo(width * 3/17, 0)
-			.lineTo(width * 14/17, 0)
-			.lineStyle(width/56, color.line)
-			.moveTo(width * 3/17, -height/2)
-			.lineTo(width * 3/17, height/2)
-			.moveTo(width/2, -height/2)
-			.lineTo(width/2, height/2)
-			.moveTo(width *14/17 , -height/2)
-			.lineTo(width *14/17, height/2);
+			.lineTo(width * 3/17, height)
+			.moveTo(width/2, 0)
+			.lineTo(width/2, height)
+			.moveTo(width *14/17 , 0)
+			.lineTo(width *14/17, height);
 
 		graphics.pivot.x = width / 2;
 		graphics.pivot.y = height / 2;

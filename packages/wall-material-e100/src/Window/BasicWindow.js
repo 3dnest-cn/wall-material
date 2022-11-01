@@ -11,11 +11,13 @@ export const BasicWindow = {
 
 		graphics
 			.lineStyle(lineWidth, color.line)
-			.beginFill(color.fill)
 			.drawRect(0, 0, width, height)
+			.lineStyle(lineWidth * 3, color.line)
 			.moveTo(0, height / 2)
 			.lineTo(width, height / 2)
-			.endFill();
+			.lineStyle(lineWidth * 1.5, color.line)
+			.moveTo(width/2, 0)
+			.lineTo(width/2, height);
 
 		graphics.pivot.x = width / 2;
 		graphics.pivot.y = height / 2;

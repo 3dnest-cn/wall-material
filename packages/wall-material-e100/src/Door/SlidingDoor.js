@@ -13,7 +13,7 @@ export const SlidingDoor = {
 			.lineStyle(lineWidth, color.line)
 			.drawRect(0 , height / 2, width / 2, height / 2 * flipSign)
 			.drawRect(width , height / 2, -width / 2, -height / 2 * flipSign)
-			.lineStyle(width / 66, color.line)
+			.lineStyle(lineWidth * 1.8, color.line)
 			.moveTo(width / 2, 0)
 			.lineTo(width / 2, height);
 

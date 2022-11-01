@@ -12,7 +12,7 @@ export const Bealock = {
 			.lineStyle(lineWidth, color.line)
 			.drawRect(0, 0, width / 28, height)
 			.drawRect(width, height, -width /28, -height)
-			.lineStyle(width/ 42, color.line)
+			.lineStyle(lineWidth * 2, color.line)
 			.moveTo(width / 28, 0)
 			.lineTo(width / 28, height)
 			.moveTo(27 * width / 28, 0)

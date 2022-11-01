@@ -11,17 +11,10 @@ export const FloorWindow = {
 
 		graphics
 			.lineStyle(lineWidth, color.line)
-			.beginFill(color.fill)
-			.drawRect(0, 0, width, height)
-			.endFill()
-			.moveTo(0, height / 2)
-			.lineTo(width, height / 2)
-			.moveTo(0, height / 3)
-			.lineTo(width, height / 3)
-			.moveTo(0, 2 * height / 3)
-			.lineTo(width, 2 * height / 3)
-			.moveTo(width / 2, height / 3)
-			.lineTo(width / 2, 2 * height / 3);
+			.drawRect(0,0,width,-height)
+			.lineStyle(lineWidth *2, color.line)
+			.moveTo(0, -height/2)
+			.lineTo(width, -height/2);
 
 		graphics.pivot.x = width / 2;
 		graphics.pivot.y = height / 2;

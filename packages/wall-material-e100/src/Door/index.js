@@ -4,3 +4,4 @@ export { SlidingDoor } from './SlidingDoor.js';
 export { ParentDoor } from './ParentDoor.js';
 export { Bealock } from './Bealock.js';
 export { LiftDoor } from './LiftDoor.js';
+export { FoldingDoor } from './FoldingDoor.js';

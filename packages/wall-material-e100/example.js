@@ -108,7 +108,7 @@ parentDoorGraphicsB.y = 400;
 // liftdoor
 const liftDoorGraphics = new PIXI.Graphics();
 const liftDoorContext = {
-	width: 150,
+	width: 200,
 	height: 30,
 	scale: 10
 };
@@ -117,6 +117,19 @@ app.stage.addChild(WM.Door.LiftDoor.render(liftDoorGraphics, liftDoorContext));
 
 liftDoorGraphics.x = 1200;
 liftDoorGraphics.y = 500;
+
+// foldingdoor
+const foldingDoorGraphics = new PIXI.Graphics();
+const foldingDoorContext = {
+	width: 150,
+	height: 30,
+	scale: 10
+};
+
+app.stage.addChild(WM.Door.FoldingDoor.render(foldingDoorGraphics, foldingDoorContext));
+
+foldingDoorGraphics.x = 1200;
+foldingDoorGraphics.y = 600;
 
 // bealock
 const bealockGraphics = new PIXI.Graphics();
@@ -188,14 +201,14 @@ boilerWindowGraphicsC.y = 400;
 const floorWindowGraphics = new PIXI.Graphics();
 const floorWindowContext = {
 	width: 200,
-	height: 50,
+	height: 30,
 	scale: 10
 };
 
 app.stage.addChild(WM.Window.FloorWindow.render(floorWindowGraphics, floorWindowContext));
 
 floorWindowGraphics.x = 110;
-floorWindowGraphics.y = 360;
+floorWindowGraphics.y = 430;
 
 // LWindow
 const LWindowGraphicsA = new PIXI.Graphics();
@@ -249,8 +262,8 @@ const UWindowContextB = {
 	centerWidtn: 180,
 	rightWidth: 100,
 	leftWallThickness: 20,
-	centerWallThickness: 30,
-	rightWallThickness: 10,
+	centerWallThickness: 25,
+	rightWallThickness: 20,
 	scale: 10
 };
 
