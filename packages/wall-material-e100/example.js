@@ -343,3 +343,32 @@ app.stage.addChild(WM.Window.UBoilerWindow.render(UBoilerWindowGraphicsB, UBoile
 
 UBoilerWindowGraphicsB.x = 800;
 UBoilerWindowGraphicsB.y = 700;
+
+//doorwindow
+
+const DoorWindowGraphicsA = new PIXI.Graphics();
+const DoorWindowContextA = {
+	width: 150,
+	height: 15,
+	fliped: false,
+	scale: 10
+};
+
+app.stage.addChild(WM.Window.DoorWindow.render(DoorWindowGraphicsA, DoorWindowContextA));
+
+DoorWindowGraphicsA.x = 100;
+DoorWindowGraphicsA.y = 950;
+
+
+const DoorWindowGraphicsB = new PIXI.Graphics();
+const DoorWindowContextB = {
+	width: 150,
+	height: 15,
+	fliped: true,
+	scale: 10
+};
+
+app.stage.addChild(WM.Window.DoorWindow.render(DoorWindowGraphicsB, DoorWindowContextB));
+
+DoorWindowGraphicsB.x = 300;
+DoorWindowGraphicsB.y = 950;
