@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 const DIST_DIR = path.join(__dirname, '../.dev');
 
 export default defineConfig({
-	input: path.join(__dirname, '../example.js'),
+	input: path.join(__dirname, '../index.js'),
 	output: {
 		dir: DIST_DIR,
 		sourcemap: 'inline',

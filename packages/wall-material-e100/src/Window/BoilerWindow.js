@@ -12,17 +12,17 @@ export const BoilerWindow = {
 
 		graphics
 			.lineStyle(lineWidth, color.line)
-			.drawRect(0, -(sillThickness + windowThickness), width + windowThickness * 2, sillThickness + windowThickness )
+			.drawRect(0, -(sillThickness + windowThickness -height), width , sillThickness + windowThickness )
 			// .drawRect(windowThickness / 2, -(sillThickness + windowThickness / 2), width + windowThickness , sillThickness + windowThickness / 2)
-			.drawRect(windowThickness, -sillThickness, width, sillThickness)
+			.drawRect(windowThickness, -(sillThickness-height), width-windowThickness*2, sillThickness)
 			.lineStyle(lineWidth * 2, color.line)
-			.moveTo(windowThickness + width/2, -(sillThickness + windowThickness))
-			.lineTo(windowThickness + width/2, - sillThickness)
+			.moveTo(width/2, -(sillThickness + windowThickness-height))
+			.lineTo(width/2, - (sillThickness-height))
 			.lineStyle(lineWidth * 3, color.line)
-			.moveTo(windowThickness/2, 0)
-			.lineTo(windowThickness/2, -(sillThickness + windowThickness/2))
-			.lineTo(windowThickness *3/2 +width, -(sillThickness + windowThickness/2))
-			.lineTo(windowThickness *3/2 +width, 0);
+			.moveTo(windowThickness/2, height)
+			.lineTo(windowThickness/2, -(sillThickness + windowThickness/2-height))
+			.lineTo(width-windowThickness/2, -(sillThickness + windowThickness/2-height))
+			.lineTo(width-windowThickness/2, height);
 
 		graphics.pivot.x = width / 2;
 		graphics.pivot.y = -height / 2;

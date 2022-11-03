@@ -5,14 +5,14 @@ export const SlidingDoor = {
 	width: 800,
 	render: (graphics, context) => {
 		const { width, height, scale, fliped} = context;
-		const flipSign = fliped ? -1 : 1;
+		const flipSign = fliped ? 1 : 0;
 		const lineWidth = LINE_WIDTH / scale;
 		const color = getColors(context);
 
 		graphics
 			.lineStyle(lineWidth, color.line)
-			.drawRect(0 , height / 2, width / 2, height / 2 * flipSign)
-			.drawRect(width , height / 2, -width / 2, -height / 2 * flipSign)
+			.drawRect(0 , height/2 * flipSign, width / 2, height / 2)
+			.drawRect(width / 2, height/2 - height/2 * flipSign, width / 2, height / 2)
 			.lineStyle(lineWidth * 1.8, color.line)
 			.moveTo(width / 2, 0)
 			.lineTo(width / 2, height);

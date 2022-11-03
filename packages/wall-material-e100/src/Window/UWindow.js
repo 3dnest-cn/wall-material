@@ -4,7 +4,7 @@ import { getColors } from '../utils.js';
 export const UWindow = {
 	render: (graphics, context) => {
 		const {
-			leftWidth, centerWidtn, rightWidth,
+			leftWidth, centerWidtn,
 			leftWallThickness, centerWallThickness, rightWallThickness,
 			scale
 		} = context;
@@ -16,28 +16,19 @@ export const UWindow = {
 			.lineStyle(lineWidth, color.line)
 			.beginFill(color.fill, 0)
 			.moveTo(0, 0)
+			.lineTo(0, -leftWidth)
+			.lineTo(centerWidtn, -leftWidth)
 			.lineTo(centerWidtn, 0)
-			.lineStyle(lineWidth *1.5, color.line)
-			.lineTo(centerWidtn, rightWidth)
-			.lineStyle(lineWidth, color.line)
-			.lineTo(centerWidtn - rightWallThickness, rightWidth)
-			.lineStyle(lineWidth *1.5, color.line)
-			.lineTo(centerWidtn - rightWallThickness, centerWallThickness)
-			.lineStyle(lineWidth, color.line)
-			.lineTo(leftWallThickness, centerWallThickness)
-			.lineStyle(lineWidth *1.5, color.line)
-			.lineTo(leftWallThickness, leftWidth)
-			.lineStyle(lineWidth, color.line)
-			.lineTo(0, leftWidth)
-			.lineStyle(lineWidth *1.5, color.line)
+			.lineTo(centerWidtn - rightWallThickness, 0)
+			.lineTo(centerWidtn - rightWallThickness, -(leftWidth - centerWallThickness))
+			.lineTo(leftWallThickness, -(leftWidth - centerWallThickness))
+			.lineTo(leftWallThickness, 0)
 			.lineTo(0, 0)
 			.endFill()
-			.moveTo(leftWallThickness / 2, leftWidth)
-			.lineTo(leftWallThickness / 2, centerWallThickness / 2)
-			.lineStyle(lineWidth, color.line)
-			.lineTo(centerWidtn - rightWallThickness / 2, centerWallThickness /2)
-			.lineStyle(lineWidth *1.5, color.line)
-			.lineTo(centerWidtn - rightWallThickness / 2, rightWidth);
+			.moveTo(leftWallThickness / 2, 0)
+			.lineTo(leftWallThickness / 2, -(leftWidth - centerWallThickness / 2))
+			.lineTo(centerWidtn - rightWallThickness / 2, -(leftWidth - centerWallThickness / 2))
+			.lineTo(centerWidtn - rightWallThickness / 2, 0);
 
 		graphics.pivot.x = centerWidtn / 2;
 		graphics.pivot.y = centerWallThickness / 2;

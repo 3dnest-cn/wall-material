@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import * as WM from './index.js';
+import * as WM from '@3dnest/wall-material-e100';
 
 const app = new PIXI.Application({
 	width: 1500,
@@ -24,7 +24,7 @@ app.stage.addChild(WM.Door.SingleDoor.render(singleDoorGraphicsA, singleDoorCont
 
 singleDoorGraphicsA.x = 100;
 singleDoorGraphicsA.y = 200;
-// singleDoorGraphicsA.rotation = Math.PI / 8;
+singleDoorGraphicsA.rotation = Math.PI / 8;
 
 const singleDoorGraphicsB = new PIXI.Graphics();
 const singleDoorContextB = {
@@ -248,14 +248,13 @@ const UWindowContextA = {
 	leftWallThickness: 20,
 	centerWallThickness: 20,
 	rightWallThickness: 20,
-	height:20,
 	scale: 10
 };
 
 app.stage.addChild(WM.Window.UWindow.render(UWindowGraphicsA, UWindowContextA));
 
 UWindowGraphicsA.x = 300;
-UWindowGraphicsA.y = 580;
+UWindowGraphicsA.y = 470;
 
 const UWindowGraphicsB = new PIXI.Graphics();
 const UWindowContextB = {

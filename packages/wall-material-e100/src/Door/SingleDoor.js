@@ -15,7 +15,7 @@ export const SingleDoor = {
 			.arc(width * flipSign, height / 2, width, - PI / 2 * flipSign - PI / 2, -PI * flipSign / 2)
 			.lineTo(width * flipSign, height / 2)
 			.lineTo(0, height / 2 - width + flipSign * width)
-			.drawRect((width - doorThickness) * flipSign, height / 2, doorThickness, -width);
+			.drawRect((width - doorThickness) * flipSign, height/2 - width, doorThickness, width);
 
 		graphics.pivot.x = width / 2;
 		graphics.pivot.y = height / 2;

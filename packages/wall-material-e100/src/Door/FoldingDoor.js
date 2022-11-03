@@ -11,7 +11,7 @@ export const FoldingDoor = {
 		graphics
 			.lineStyle(lineWidth, color.line)
 			.drawRect(0, 0, width/17, height)
-			.drawRect(width, height, -width/17, -height)
+			.drawRect(width - width/17, 0, width/17, height)
 			.moveTo(width /17, height)
 			.lineTo(width * 9/68, 0)
 			.lineTo(width * 14/68, height)
