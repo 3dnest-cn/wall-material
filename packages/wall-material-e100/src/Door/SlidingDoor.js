@@ -11,8 +11,8 @@ export const SlidingDoor = {
 
 		graphics
 			.lineStyle(lineWidth, color.line)
-			.drawRect(0 , height/2 * flipSign, width / 2, height / 2)
-			.drawRect(width / 2, height/2 - height/2 * flipSign, width / 2, height / 2)
+			.drawRect(0 , height / 2 * flipSign, width / 2, height / 2)
+			.drawRect(width / 2, height / 2 - height / 2 * flipSign, width / 2, height / 2)
 			.lineStyle(lineWidth * 1.8, color.line)
 			.moveTo(width / 2, 0)
 			.lineTo(width / 2, height);

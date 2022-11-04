@@ -4,7 +4,7 @@ import { getColors } from '../utils.js';
 export const BasicWindow = {
 	width: 800,
 	render: (graphics, context) => {
-		const { width, height, scale, /* state = 'stateless' */ } = context;
+		const { width, height, scale } = context;
 
 		const lineWidth = LINE_WIDTH / scale;
 		const color = getColors(context);
@@ -16,8 +16,8 @@ export const BasicWindow = {
 			.moveTo(0, height / 2)
 			.lineTo(width, height / 2)
 			.lineStyle(lineWidth * 1.5, color.line)
-			.moveTo(width/2, 0)
-			.lineTo(width/2, height);
+			.moveTo(width / 2, 0)
+			.lineTo(width / 2, height);
 
 		graphics.pivot.x = width / 2;
 		graphics.pivot.y = height / 2;

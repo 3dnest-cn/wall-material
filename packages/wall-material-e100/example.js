@@ -271,7 +271,7 @@ const UWindowContextB = {
 app.stage.addChild(WM.Window.UWindow.render(UWindowGraphicsB, UWindowContextB));
 
 UWindowGraphicsB.x = 300;
-UWindowGraphicsB.y = 670;
+UWindowGraphicsB.y = 750;
 
 // LBoilerWindow
 const LBoilerWindowGraphicsA = new PIXI.Graphics();

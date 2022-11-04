@@ -1,6 +1,7 @@
 import { LINE_WIDTH } from '../constant.js';
 import { getColors } from '../utils.js';
 
+const RECT_WIDTH = 5;
 export const Bealock = {
 	width: 2000,
 	render: (graphics, context) => {
@@ -10,13 +11,13 @@ export const Bealock = {
 
 		graphics
 			.lineStyle(lineWidth, color.line)
-			.drawRect(0, 0, width / 28, height)
-			.drawRect(width - width/28, 0, width /28, height)
+			.drawRect(0, 0, RECT_WIDTH, height)
+			.drawRect(width - RECT_WIDTH, 0, RECT_WIDTH, height)
 			.lineStyle(lineWidth * 2, color.line)
-			.moveTo(width / 28, 0)
-			.lineTo(width / 28, height)
-			.moveTo(27 * width / 28, 0)
-			.lineTo(27 * width / 28, height);
+			.moveTo(RECT_WIDTH, 0)
+			.lineTo(RECT_WIDTH, height)
+			.moveTo(width - RECT_WIDTH, 0)
+			.lineTo(width - RECT_WIDTH, height);
 
 		graphics.pivot.x = width / 2;
 		graphics.pivot.y = height / 2;
