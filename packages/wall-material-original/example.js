@@ -19,7 +19,7 @@ const singleDoorContextA = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Door.SingleDoor.render(singleDoorGraphicsA, singleDoorContextA));
+app.stage.addChild(WM.Door.SingleDoor(singleDoorGraphicsA, singleDoorContextA));
 
 singleDoorGraphicsA.x = 100;
 singleDoorGraphicsA.y = 200;
@@ -33,7 +33,7 @@ const singleDoorContextB = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Door.SingleDoor.render(singleDoorGraphicsB, singleDoorContextB));
+app.stage.addChild(WM.Door.SingleDoor(singleDoorGraphicsB, singleDoorContextB));
 
 singleDoorGraphicsB.x = 300;
 singleDoorGraphicsB.y = 200;
@@ -46,7 +46,7 @@ const doubleDoorContext = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Door.DoubleDoor.render(doubleDoorGraphics, doubleDoorContext));
+app.stage.addChild(WM.Door.DoubleDoor(doubleDoorGraphics, doubleDoorContext));
 
 doubleDoorGraphics.x = 600;
 doubleDoorGraphics.y = 200;
@@ -60,7 +60,7 @@ const slidingDoorContextA = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Door.SlidingDoor.render(slidingDoorGraphicsA, slidingDoorContextA));
+app.stage.addChild(WM.Door.SlidingDoor(slidingDoorGraphicsA, slidingDoorContextA));
 
 slidingDoorGraphicsA.x = 850;
 slidingDoorGraphicsA.y = 50;
@@ -73,7 +73,7 @@ const slidingDoorContextB = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Door.SlidingDoor.render(slidingDoorGraphicsB, slidingDoorContextB));
+app.stage.addChild(WM.Door.SlidingDoor(slidingDoorGraphicsB, slidingDoorContextB));
 
 slidingDoorGraphicsB.x = 850;
 slidingDoorGraphicsB.y = 120;
@@ -86,7 +86,7 @@ const windowContext = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.BasicWindow.render(windowGraphics, windowContext));
+app.stage.addChild(WM.Window.BasicWindow(windowGraphics, windowContext));
 
 windowGraphics.x = 100;
 windowGraphics.y = 300;
@@ -100,7 +100,7 @@ const boilerWindowContextA = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.BoilerWindow.render(boilerWindowGraphicsA, boilerWindowContextA));
+app.stage.addChild(WM.Window.BoilerWindow(boilerWindowGraphicsA, boilerWindowContextA));
 
 boilerWindowGraphicsA.x = 335;
 boilerWindowGraphicsA.y = 350;
@@ -113,7 +113,7 @@ const boilerWindowContextB = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.BoilerWindow.render(boilerWindowGraphicsB, boilerWindowContextB));
+app.stage.addChild(WM.Window.BoilerWindow(boilerWindowGraphicsB, boilerWindowContextB));
 
 boilerWindowGraphicsB.x = 585;
 boilerWindowGraphicsB.y = 400;
@@ -126,7 +126,7 @@ const boilerWindowContextC = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.BoilerWindow.render(boilerWindowGraphicsC, boilerWindowContextC));
+app.stage.addChild(WM.Window.BoilerWindow(boilerWindowGraphicsC, boilerWindowContextC));
 
 boilerWindowGraphicsC.x = 855;
 boilerWindowGraphicsC.y = 400;
@@ -139,7 +139,7 @@ const floorWindowContext = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.FloorWindow.render(floorWindowGraphics, floorWindowContext));
+app.stage.addChild(WM.Window.FloorWindow(floorWindowGraphics, floorWindowContext));
 
 floorWindowGraphics.x = 110;
 floorWindowGraphics.y = 360;
@@ -153,7 +153,7 @@ const parentDoorContext = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Door.ParentDoor.render(parentDoorGraphics, parentDoorContext));
+app.stage.addChild(WM.Door.ParentDoor(parentDoorGraphics, parentDoorContext));
 
 parentDoorGraphics.x = 110;
 parentDoorGraphics.y = 410;
@@ -166,7 +166,7 @@ const bealockContext = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Door.Bealock.render(bealockGraphics, bealockContext));
+app.stage.addChild(WM.Door.Bealock(bealockGraphics, bealockContext));
 
 bealockGraphics.x = 310;
 bealockGraphics.y = 410;
@@ -181,7 +181,7 @@ const LWindowContextA = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.LWindow.render(LWindowGraphicsA, LWindowContextA));
+app.stage.addChild(WM.Window.LWindow(LWindowGraphicsA, LWindowContextA));
 
 LWindowGraphicsA.x = 100;
 LWindowGraphicsA.y = 470;
@@ -195,7 +195,7 @@ const LWindowContextB = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.LWindow.render(LWindowGraphicsB, LWindowContextB));
+app.stage.addChild(WM.Window.LWindow(LWindowGraphicsB, LWindowContextB));
 
 LWindowGraphicsB.x = 100;
 LWindowGraphicsB.y = 670;
@@ -212,7 +212,7 @@ const UWindowContextA = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.UWindow.render(UWindowGraphicsA, UWindowContextA));
+app.stage.addChild(WM.Window.UWindow(UWindowGraphicsA, UWindowContextA));
 
 UWindowGraphicsA.x = 300;
 UWindowGraphicsA.y = 470;
@@ -228,7 +228,7 @@ const UWindowContextB = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.UWindow.render(UWindowGraphicsB, UWindowContextB));
+app.stage.addChild(WM.Window.UWindow(UWindowGraphicsB, UWindowContextB));
 
 UWindowGraphicsB.x = 300;
 UWindowGraphicsB.y = 670;
@@ -245,7 +245,7 @@ const LBoilerWindowContextA = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.LBoilerWindow.render(LBoilerWindowGraphicsA, LBoilerWindowContextA));
+app.stage.addChild(WM.Window.LBoilerWindow(LBoilerWindowGraphicsA, LBoilerWindowContextA));
 
 LBoilerWindowGraphicsA.x = 550;
 LBoilerWindowGraphicsA.y = 500;
@@ -261,7 +261,7 @@ const LBoilerWindowContextB = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.LBoilerWindow.render(LBoilerWindowGraphicsB, LBoilerWindowContextB));
+app.stage.addChild(WM.Window.LBoilerWindow(LBoilerWindowGraphicsB, LBoilerWindowContextB));
 
 LBoilerWindowGraphicsB.x = 550;
 LBoilerWindowGraphicsB.y = 700;
@@ -281,7 +281,7 @@ const UBoilerWindowContextA = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.UBoilerWindow.render(UBoilerWindowGraphicsA, UBoilerWindowContextA));
+app.stage.addChild(WM.Window.UBoilerWindow(UBoilerWindowGraphicsA, UBoilerWindowContextA));
 
 UBoilerWindowGraphicsA.x = 800;
 UBoilerWindowGraphicsA.y = 500;
@@ -300,7 +300,7 @@ const UBoilerWindowContextB = {
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.UBoilerWindow.render(UBoilerWindowGraphicsB, UBoilerWindowContextB));
+app.stage.addChild(WM.Window.UBoilerWindow(UBoilerWindowGraphicsB, UBoilerWindowContextB));
 
 UBoilerWindowGraphicsB.x = 800;
 UBoilerWindowGraphicsB.y = 700;
