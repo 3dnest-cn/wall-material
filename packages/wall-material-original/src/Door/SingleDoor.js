@@ -27,7 +27,7 @@ export const SingleDoor = (graphics, context) => {
 		.moveTo(width, 0)
 		.lineTo(width, height)
 		.lineStyle(lineWidth, color.line)
-		.drawRect((width - doorThickness) * flipSign, height / 2, doorThickness, -width);
+		.drawRect((width - doorThickness) * flipSign, height / 2 - width, doorThickness, width);
 
 	graphics.pivot.x = width / 2;
 	graphics.pivot.y = height / 2;

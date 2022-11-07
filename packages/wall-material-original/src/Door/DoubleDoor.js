@@ -30,8 +30,8 @@ export const DoubleDoor = (graphics, context) => {
 		.lineTo(0, height)
 		.moveTo(width, 0)
 		.lineTo(width, height)
-		.drawRect(0, height / 2, doorThickness, -width / 2)
-		.drawRect(width, height / 2, -doorThickness, -width / 2);
+		.drawRect(0, height / 2 - width / 2, doorThickness, width / 2)
+		.drawRect(width - doorThickness, height / 2 - width / 2, doorThickness, width / 2);
 
 	graphics.pivot.x = width / 2;
 	graphics.pivot.y = height / 2;

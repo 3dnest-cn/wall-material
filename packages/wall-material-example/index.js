@@ -24,7 +24,7 @@ app.stage.addChild(WM.Door.SingleDoor(singleDoorGraphicsA, singleDoorContextA));
 
 singleDoorGraphicsA.x = 100;
 singleDoorGraphicsA.y = 200;
-singleDoorGraphicsA.rotation = Math.PI / 8;
+// singleDoorGraphicsA.rotation = Math.PI / 8;
 
 const singleDoorGraphicsB = new PIXI.Graphics();
 const singleDoorContextB = {
@@ -248,13 +248,14 @@ const UWindowContextA = {
 	leftWallThickness: 20,
 	centerWallThickness: 20,
 	rightWallThickness: 20,
+	height:20,
 	scale: 10
 };
 
 app.stage.addChild(WM.Window.UWindow(UWindowGraphicsA, UWindowContextA));
 
 UWindowGraphicsA.x = 300;
-UWindowGraphicsA.y = 570;
+UWindowGraphicsA.y = 580;
 
 const UWindowGraphicsB = new PIXI.Graphics();
 const UWindowContextB = {
@@ -270,7 +271,7 @@ const UWindowContextB = {
 app.stage.addChild(WM.Window.UWindow(UWindowGraphicsB, UWindowContextB));
 
 UWindowGraphicsB.x = 300;
-UWindowGraphicsB.y = 770;
+UWindowGraphicsB.y = 750;
 
 // LBoilerWindow
 const LBoilerWindowGraphicsA = new PIXI.Graphics();
