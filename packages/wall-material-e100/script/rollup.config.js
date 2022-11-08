@@ -14,8 +14,8 @@ const MODULE_NAME = meta.name;
 const BANNER =
 	'/*!\n' +
 	` * ${ meta.name } v${ meta.version }\n` +
-	` * (c) 2021-${new Date().getFullYear()} 3dnest\n` +
-	' * Released under the ISC License.\n' +
+	` * (c) 2022-${new Date().getFullYear()} 3dnest\n` +
+	' * Released under the MIT License.\n' +
 	' */';
 
 const moduleList = [

@@ -1,23 +1,12 @@
 {
   "name": "@3dnest/wall-material-example",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "zhangsen <zhangsen@3dnest.cn>",
   "homepage": "https://github.com/3dnest-cn/wall-material/tree/main/packages/wall-material-example#readme",
   "license": "ISC",
-  "main": "lib/wall-material-example.js",
   "type": "module",
 	"private":"true",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/3dnest-cn/wall-material.git"
@@ -29,8 +18,8 @@
     "url": "https://github.com/3dnest-cn/wall-material/issues"
   },
   "dependencies": {
-    "@3dnest/wall-material-e100": "^0.0.0",
-    "@3dnest/wall-material-original": "^1.0.0",
+    "@3dnest/wall-material-e100": "^0.0.1",
+    "@3dnest/wall-material-original": "^0.0.1",
     "pixi.js": "^7.0.2"
   },
   "devDependencies": {
