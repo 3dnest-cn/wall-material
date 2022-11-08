@@ -4,7 +4,9 @@
   "description": "Provide the painting process of doors and Windows",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+		"deps:install": "npm -v && npm install && npm run deps:bootstrap",
+		"deps:bootstrap": "lerna bootstrap --hoist {eslint,lerna,@produck/charon**}",
+		"deps:clean": "lerna clean -y"
   },
   "repository": {
     "type": "git",

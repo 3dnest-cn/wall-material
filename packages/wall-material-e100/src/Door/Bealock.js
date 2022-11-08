@@ -1,8 +1,7 @@
-import { LINE_WIDTH } from '../constant.js';
+import { LINE_WIDTH, ALPHA } from '../constant.js';
 import { getColors } from '../utils.js';
 
 const RECT_WIDTH = 5;
-// width: 2000,
 
 export const Bealock = (graphics, context) => {
 	const { width, height, scale} = context;
@@ -10,6 +9,9 @@ export const Bealock = (graphics, context) => {
 	const color = getColors(context);
 
 	graphics
+		.beginFill(color.fill, ALPHA)
+		.drawRect(0, 0, width, height)
+		.endFill()
 		.lineStyle(lineWidth, color.line)
 		.drawRect(0, 0, RECT_WIDTH, height)
 		.drawRect(width - RECT_WIDTH, 0, RECT_WIDTH, height)

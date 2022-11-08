@@ -1,7 +1,5 @@
-import { LINE_WIDTH } from '../constant.js';
+import { LINE_WIDTH, ALPHA } from '../constant.js';
 import { getColors } from '../utils.js';
-
-// width: 1500,
 
 export const BoilerWindow = (graphics, context) => {
 	const { width, scale, sillThickness = 500 / scale, height } = context;
@@ -10,10 +8,12 @@ export const BoilerWindow = (graphics, context) => {
 	const color = getColors(context);
 
 	graphics
+		.beginFill(color.fill, ALPHA)
 		.lineStyle(lineWidth, color.line)
 		.drawRect(0, -(sillThickness + windowThickness - height), width, sillThickness + windowThickness)
 		// .drawRect(windowThickness / 2, -(sillThickness + windowThickness / 2), width + windowThickness , sillThickness + windowThickness / 2)
 		.drawRect(windowThickness, -(sillThickness - height), width - windowThickness * 2, sillThickness)
+		.endFill()
 		.lineStyle(lineWidth * 2, color.line)
 		.moveTo(width / 2, -(sillThickness + windowThickness - height))
 		.lineTo(width / 2, -(sillThickness - height))

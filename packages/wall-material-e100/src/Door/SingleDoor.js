@@ -1,7 +1,5 @@
-import { PI, DOOR_THICKNESS, LINE_WIDTH } from '../constant.js';
+import { PI, DOOR_THICKNESS, LINE_WIDTH, ALPHA } from '../constant.js';
 import { getColors } from '../utils.js';
-
-// width: 800,
 
 export const SingleDoor = (graphics,context) => {
 	const { width, height, fliped, scale } = context;
@@ -11,11 +9,13 @@ export const SingleDoor = (graphics,context) => {
 	const color = getColors(context);
 
 	graphics
+		.beginFill(color.fill, ALPHA)
 		.lineStyle(lineWidth, color.line)
 		.arc(width * flipSign, height / 2, width, -PI / 2 * flipSign - PI / 2, -PI * flipSign / 2)
 		.lineTo(width * flipSign, height / 2)
 		.lineTo(0, height / 2 - width + flipSign * width)
-		.drawRect((width - doorThickness) * flipSign, height / 2 - width, doorThickness, width);
+		.drawRect((width - doorThickness) * flipSign, height / 2 - width, doorThickness, width)
+		.endFill();
 
 	graphics.pivot.x = width / 2;
 	graphics.pivot.y = height / 2;

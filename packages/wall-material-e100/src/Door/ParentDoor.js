@@ -1,8 +1,7 @@
-import { PI, DOOR_THICKNESS, LINE_WIDTH } from '../constant.js';
+import { PI, DOOR_THICKNESS, LINE_WIDTH, ALPHA } from '../constant.js';
 import { getColors } from '../utils.js';
 
 const PARENTDOOR_SCALE = 3 / 7;
-// width: 1450,
 
 export const ParentDoor = (graphics, context) => {
 	const { width, height, fliped, scale } = context;
@@ -12,6 +11,7 @@ export const ParentDoor = (graphics, context) => {
 	const color = getColors(context);
 
 	graphics
+		.beginFill(color.fill, ALPHA)
 		.lineStyle(lineWidth, color.line)
 		.arc(0, height / 2, width * PARENTDOOR_SCALE * flipSign, -PI / 2, 0)
 		.lineTo(0, height / 2)
@@ -20,8 +20,10 @@ export const ParentDoor = (graphics, context) => {
 		.arc(width, height / 2, width - width * PARENTDOOR_SCALE * flipSign, PI, -PI / 2)
 		.lineTo(width, height / 2)
 		.lineTo(width * PARENTDOOR_SCALE * flipSign , height / 2)
+		.endFill()
 		.drawRect(0, height / 2 - width * PARENTDOOR_SCALE * flipSign, doorThickness, width * PARENTDOOR_SCALE * flipSign)
 		.drawRect(width - doorThickness, height / 2 - (width - width * PARENTDOOR_SCALE * flipSign), doorThickness, width - width * PARENTDOOR_SCALE * flipSign);
+
 
 	graphics.pivot.x = width / 2;
 	graphics.pivot.y = height / 2;

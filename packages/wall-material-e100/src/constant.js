@@ -6,6 +6,8 @@ export const LINE_WIDTH = 15;
 
 export const SEAM = 10;
 
+export const ALPHA = .01;
+
 export const COLOR = {
 	stateless: {
 		line: 0x000000,

@@ -1,4 +1,4 @@
-import { LINE_WIDTH } from '../constant.js';
+import { LINE_WIDTH, ALPHA } from '../constant.js';
 import { getColors } from '../utils.js';
 
 export const UWindow = (graphics, context) => {
@@ -13,7 +13,7 @@ export const UWindow = (graphics, context) => {
 
 	graphics
 		.lineStyle(lineWidth, color.line)
-		.beginFill(color.fill, 0)
+		.beginFill(color.fill, ALPHA)
 		.moveTo(0, 0)
 		.lineTo(0, -leftWidth)
 		.lineTo(centerWidtn, -leftWidth)

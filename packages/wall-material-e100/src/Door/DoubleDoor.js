@@ -1,7 +1,5 @@
-import { PI, DOOR_THICKNESS, LINE_WIDTH } from '../constant.js';
+import { PI, DOOR_THICKNESS, LINE_WIDTH, ALPHA } from '../constant.js';
 import { getColors } from '../utils.js';
-
-// width: 800,
 
 export const DoubleDoor = (graphics, context) => {
 	const { width, height, scale } = context;
@@ -10,6 +8,7 @@ export const DoubleDoor = (graphics, context) => {
 	const color = getColors(context);
 
 	graphics
+		.beginFill(color.fill, ALPHA)
 		.lineStyle(lineWidth, color.line)
 		.arc(0, height / 2, width / 2, -PI / 2, 0)
 		.lineTo(0, height / 2)
@@ -18,6 +17,7 @@ export const DoubleDoor = (graphics, context) => {
 		.arc(width, height / 2, width / 2, PI, -PI / 2)
 		.lineTo(width, height / 2)
 		.lineTo(width / 2, height / 2)
+		.endFill()
 		.drawRect(0, height / 2 - width / 2, doorThickness, width / 2)
 		.drawRect(width - doorThickness, height / 2 - width / 2, doorThickness, width / 2);
 
