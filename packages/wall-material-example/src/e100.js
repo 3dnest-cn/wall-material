@@ -134,9 +134,9 @@ foldingDoorGraphics.y = 600;
 // bealock
 const bealockGraphics = new PIXI.Graphics();
 const bealockContext = {
-	width: 150,
-	height: 30,
-	scale: 10
+	width: 75,
+	height: 15,
+	scale: 20
 };
 
 app.stage.addChild(WM.Door.Bealock(bealockGraphics, bealockContext));
