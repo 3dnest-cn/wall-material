@@ -96,7 +96,8 @@ const boilerWindowGraphicsA = new PIXI.Graphics();
 const boilerWindowContextA = {
 	width: 150,
 	height: 20,
-	windowThickness: 50,
+	sillThickness: 20,
+	windowThickness: 20,
 	scale: 10
 };
 
@@ -108,21 +109,22 @@ boilerWindowGraphicsA.y = 350;
 const boilerWindowGraphicsB = new PIXI.Graphics();
 const boilerWindowContextB = {
 	width: 150,
-	height: 40,
-	windowThickness: 50,
+	height: 20,
+	sillThickness: 40,
+	windowThickness: 20,
 	scale: 10
 };
 
 app.stage.addChild(WM.Window.BoilerWindow(boilerWindowGraphicsB, boilerWindowContextB));
 
 boilerWindowGraphicsB.x = 585;
-boilerWindowGraphicsB.y = 400;
+boilerWindowGraphicsB.y = 300;
 
 const boilerWindowGraphicsC = new PIXI.Graphics();
 const boilerWindowContextC = {
 	width: 200,
 	height: 20,
-	windowThickness: 100,
+	// windowThickness: 100,
 	scale: 10
 };
 
