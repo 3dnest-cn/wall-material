@@ -162,8 +162,8 @@ const boilerWindowGraphicsA = new PIXI.Graphics();
 const boilerWindowContextA = {
 	width: 150,
 	height: 20,
-	sillThickness: 20,
-	windowThickness: 20,
+	// sillThickness: 20,
+	// windowThickness: 20,
 	scale: 10
 };
 
@@ -175,7 +175,7 @@ boilerWindowGraphicsA.y = 350;
 const boilerWindowGraphicsB = new PIXI.Graphics();
 const boilerWindowContextB = {
 	width: 300,
-	height: 15,
+	height: 20,
 	windowThickness: 50,
 	scale: 10
 };

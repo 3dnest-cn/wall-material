@@ -2,7 +2,7 @@ import { LINE_WIDTH, ALPHA } from '../constant.js';
 import { getColors } from '../utils.js';
 
 export const BoilerWindow = (graphics, context) => {
-	const { width, height, scale, sillThickness = 500 / scale, windowThickness = 240 / scale} = context;
+	const { width, height, scale, sillThickness = 260 / scale, windowThickness = 240 / scale} = context;
 	const lineWidth = LINE_WIDTH / scale;
 	const color = getColors(context);
 

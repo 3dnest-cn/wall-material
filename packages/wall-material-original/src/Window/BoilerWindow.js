@@ -3,12 +3,9 @@ import { getColors } from '../utils.js';
 
 // width: 1500,
 export const BoilerWindow = (graphics, context) => {
-	const { width, scale, height, sillThickness = 500 / scale, windowThickness = 240 / scale} = context;
+	const { width, scale, height, sillThickness = 260 / scale, windowThickness = 240 / scale} = context;
 
 	const lineWidth = LINE_WIDTH / scale;
-	// const windowThickness = height;
-	// const sillThickness = height * 2;
-	// const windowThickness = height ;
 	const color = getColors(context);
 
 	graphics
@@ -27,13 +24,13 @@ export const BoilerWindow = (graphics, context) => {
 		.lineTo(0, -sillThickness)
 		.lineTo(0, 0)
 		.endFill()
-		.moveTo(- windowThickness / 2, 0)
-		.lineTo(- windowThickness / 2, -(sillThickness + windowThickness / 2))
+		.moveTo(-windowThickness / 2, 0)
+		.lineTo(-windowThickness / 2, -(sillThickness + windowThickness / 2))
 		.lineTo(width + windowThickness / 2, -(sillThickness + windowThickness / 2))
 		.lineTo(width + windowThickness / 2, 0);
 
 	graphics.pivot.x = width / 2;
-	graphics.pivot.y = -height / 2;
+	graphics.pivot.y = height / 2;
 
 	return graphics;
 };
