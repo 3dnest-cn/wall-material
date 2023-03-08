@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 import * as WM from '@3dnest/wall-material-original';
 
 const app = new PIXI.Application({
-	width: 1000,
+	width: 1500,
 	height: 1000,
 	backgroundColor: 0xeef0f1,
 	antialias: true
@@ -172,6 +172,32 @@ app.stage.addChild(WM.Door.Bealock(bealockGraphics, bealockContext));
 
 bealockGraphics.x = 310;
 bealockGraphics.y = 410;
+
+// DoorWay
+const DoorWayGraphics = new PIXI.Graphics();
+const DoorWayContext = {
+	width: 150,
+	height: 30,
+	scale: 10
+};
+
+app.stage.addChild(WM.Door.DoorWay(DoorWayGraphics, DoorWayContext));
+
+DoorWayGraphics.x = 1310;
+DoorWayGraphics.y = 410;
+
+// Pillar
+const PillarGraphics = new PIXI.Graphics();
+const PillarContext = {
+	width: 80,
+	height: 80,
+	scale: 10
+};
+
+app.stage.addChild(WM.Stuff.Pillar(PillarGraphics, PillarContext));
+
+PillarGraphics.x = 1310;
+PillarGraphics.y = 510;
 
 // LWindow
 const LWindowGraphicsA = new PIXI.Graphics();
