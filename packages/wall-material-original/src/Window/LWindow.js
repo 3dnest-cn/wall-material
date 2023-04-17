@@ -13,20 +13,20 @@ export const LWindow = (graphics, context) => {
 	graphics
 		.lineStyle(lineWidth, color.line)
 		.beginFill(color.fill)
-		.moveTo(0, 0)
-		.lineTo(rightWidth, 0)
-		.lineTo(rightWidth, rightWallThickness)
-		.lineTo(leftWallThickness, rightWallThickness)
-		.lineTo(leftWallThickness, leftWidth)
-		.lineTo(0, leftWidth)
-		.lineTo(0, 0)
-		.endFill()
-		.moveTo(leftWallThickness / 2, leftWidth)
+		.moveTo(-leftWallThickness / 2, -rightWallThickness / 2)
+		.lineTo(rightWidth - leftWallThickness / 2, -rightWallThickness / 2)
+		.lineTo(rightWidth - leftWallThickness / 2, rightWallThickness / 2)
 		.lineTo(leftWallThickness / 2, rightWallThickness / 2)
-		.lineTo(rightWidth, rightWallThickness / 2);
+		.lineTo(leftWallThickness / 2, leftWidth - rightWallThickness / 2)
+		.lineTo(-leftWallThickness / 2, leftWidth - rightWallThickness / 2)
+		.lineTo(-leftWallThickness / 2, -rightWallThickness / 2)
+		.endFill()
+		.moveTo(0, leftWidth - rightWallThickness / 2)
+		.lineTo(0, 0)
+		.lineTo(rightWidth - leftWallThickness /2, 0);
 
-	graphics.pivot.x = rightWidth / 2;
-	graphics.pivot.y = rightWallThickness / 2;
+	graphics.pivot.x = 0;
+	graphics.pivot.y = 0;
 
 	return graphics;
 };

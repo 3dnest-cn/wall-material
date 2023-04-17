@@ -211,7 +211,7 @@ const LWindowContextA = {
 
 app.stage.addChild(WM.Window.LWindow(LWindowGraphicsA, LWindowContextA));
 
-LWindowGraphicsA.x = 100;
+LWindowGraphicsA.x = 30;
 LWindowGraphicsA.y = 470;
 
 const LWindowGraphicsB = new PIXI.Graphics();
@@ -225,7 +225,7 @@ const LWindowContextB = {
 
 app.stage.addChild(WM.Window.LWindow(LWindowGraphicsB, LWindowContextB));
 
-LWindowGraphicsB.x = 100;
+LWindowGraphicsB.x = 30;
 LWindowGraphicsB.y = 670;
 
 // UWindow
