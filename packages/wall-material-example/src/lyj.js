@@ -1,10 +1,10 @@
 import * as PIXI from 'pixi.js';
-import * as WM from '@3dnest/wall-material-original';
+import * as WM from '@3dnest/wall-material-lyj';
 
 const app = new PIXI.Application({
 	width: 1500,
 	height: 1000,
-	backgroundColor: 0x32bbb0,
+	backgroundColor: 0xeef0f1,
 	antialias: true
 });
 

@@ -1,11 +1,11 @@
-# `@3dnest/wall-material-original`
+# `wall-material-3dnest`
 
 > TODO: description
 
 ## Usage
 
 ```
-const wallMaterialOriginal = require('@3dnest/wall-material-original');
+const wallMaterial3dnest = require('wall-material-3dnest');
 
 // TODO: DEMONSTRATE API
 ```

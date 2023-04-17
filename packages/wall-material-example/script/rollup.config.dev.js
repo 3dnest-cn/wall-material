@@ -13,6 +13,7 @@ const DIST_DIR = path.join(__dirname, '../.dev');
 
 export default defineConfig({
 	// input: path.join(__dirname, '../src/e100.js'),
+	// input: path.join(__dirname, '../src/lyj.js'),
 	input: path.join(__dirname, '../src/original.js'),
 	output: {
 		dir: DIST_DIR,
