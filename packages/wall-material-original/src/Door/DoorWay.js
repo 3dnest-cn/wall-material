@@ -1,4 +1,4 @@
-import { LINE_WIDTH } from '../constant.js';
+import { LINE_WIDTH, ALPHA } from '../constant.js';
 import { getColors } from '../utils.js';
 
 
@@ -13,7 +13,7 @@ export const DoorWay = (graphics, context) => {
 		: 1;
 
 	graphics
-		.beginFill(color.fill)
+		.beginFill(color.fill, ALPHA)
 		.drawRect(0, 0, width, height)
 		.endFill()
 		.lineStyle(lineWidth, color.line)

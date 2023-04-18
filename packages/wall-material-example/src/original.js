@@ -163,8 +163,8 @@ parentDoorGraphics.y = 410;
 // bealock
 const bealockGraphics = new PIXI.Graphics();
 const bealockContext = {
-	width: 150,
-	height: 30,
+	width: 120,
+	height: 20,
 	scale: 10
 };
 
