@@ -55,7 +55,7 @@ doubleDoorGraphics.y = 200;
 const slidingDoorGraphicsA = new PIXI.Graphics();
 const slidingDoorContextA = {
 	width: 150,
-	height: 40,
+	height: 30,
 	fliped: false,
 	scale: 10
 };
@@ -68,7 +68,7 @@ slidingDoorGraphicsA.y = 50;
 const slidingDoorGraphicsB = new PIXI.Graphics();
 const slidingDoorContextB = {
 	width: 150,
-	height: 40,
+	height: 30,
 	fliped: true,
 	scale: 10
 };
