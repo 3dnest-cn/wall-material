@@ -1,7 +1,6 @@
 import { LINE_WIDTH } from '../constant.js';
 import { getColors } from '../utils.js';
 
-// width: 1500,
 export const FloorWindow = (graphics, context) => {
 	const { width, height, scale } = context;
 
@@ -13,8 +12,6 @@ export const FloorWindow = (graphics, context) => {
 		.beginFill(color.fill)
 		.drawRect(0, 0, width, height)
 		.endFill()
-		.moveTo(0, height / 2)
-		.lineTo(width, height / 2)
 		.moveTo(0, height / 3)
 		.lineTo(width, height / 3)
 		.moveTo(0, 2 * height / 3)

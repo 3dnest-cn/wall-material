@@ -1,9 +1,8 @@
 import { LINE_WIDTH } from '../constant.js';
 import { getColors } from '../utils.js';
 
-// width: 800,
 export const BasicWindow = (graphics, context) => {
-	const { width, height, scale, /* state = 'stateless' */ } = context;
+	const { width, height, scale } = context;
 
 	const lineWidth = LINE_WIDTH / scale;
 	const color = getColors(context);

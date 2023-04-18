@@ -78,11 +78,11 @@ app.stage.addChild(WM.Door.SlidingDoor(slidingDoorGraphicsB, slidingDoorContextB
 slidingDoorGraphicsB.x = 850;
 slidingDoorGraphicsB.y = 120;
 
-// window
+// basicWindow
 const windowGraphics = new PIXI.Graphics();
 const windowContext = {
 	width: 150,
-	height: 40,
+	height: 30,
 	scale: 10
 };
 
@@ -137,7 +137,7 @@ boilerWindowGraphicsC.y = 400;
 const floorWindowGraphics = new PIXI.Graphics();
 const floorWindowContext = {
 	width: 200,
-	height: 50,
+	height: 30,
 	scale: 10
 };
 
