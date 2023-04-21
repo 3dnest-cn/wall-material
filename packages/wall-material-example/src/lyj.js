@@ -4,7 +4,7 @@ import * as WM from '@3dnest/wall-material-lyj';
 const app = new PIXI.Application({
 	width: 1500,
 	height: 1000,
-	backgroundColor: 0xeef0f1,
+	backgroundColor: 0xce834a,
 	antialias: true
 });
 
