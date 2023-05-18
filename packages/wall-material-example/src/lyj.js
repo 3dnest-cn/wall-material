@@ -216,14 +216,12 @@ LWindowGraphicsA.y = 470;
 
 const LWindowGraphicsB = new PIXI.Graphics();
 const LWindowContextB = {
-	leftWidth: 150,
-	rightWidth: 150,
-	leftWallThickness: 20,
-	rightWallThickness: 30,
+	main: [[0,0], [100,0], [100,100]],
+	cross: [25, 25],
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.LWindow(LWindowGraphicsB, LWindowContextB));
+app.stage.addChild(WM.Window.LPathWindow(LWindowGraphicsB, LWindowContextB));
 
 LWindowGraphicsB.x = 30;
 LWindowGraphicsB.y = 670;
@@ -247,19 +245,28 @@ UWindowGraphicsA.y = 470;
 
 const UWindowGraphicsB = new PIXI.Graphics();
 const UWindowContextB = {
-	leftWidth: 100,
-	centerWidtn: 180,
-	rightWidth: 100,
-	leftWallThickness: 20,
-	centerWallThickness: 30,
-	rightWallThickness: 10,
+	main: [[0,0], [100,0], [100,100], [0,100]],
+	cross: [25, 25, 25],
 	scale: 10
 };
 
-app.stage.addChild(WM.Window.UWindow(UWindowGraphicsB, UWindowContextB));
+app.stage.addChild(WM.Window.UPathWindow(UWindowGraphicsB, UWindowContextB));
 
 UWindowGraphicsB.x = 300;
 UWindowGraphicsB.y = 670;
+
+//ArcWindow
+const ArcWindowGraphics = new PIXI.Graphics();
+const ArcWindowContex = {
+	main: [[0,0], [50,0], [100,50], [50,100], [0,100]],
+	cross: [25, 25, 25, 25],
+	scale: 10
+};
+
+app.stage.addChild(WM.Window.ArcWindow(ArcWindowGraphics, ArcWindowContex));
+
+ArcWindowGraphics.x = 300;
+ArcWindowGraphics.y = 820;
 
 // LBoilerWindow
 const LBoilerWindowGraphicsA = new PIXI.Graphics();
