@@ -1,5 +1,5 @@
 import { COLOR } from './constant.js';
-import { Vector, Tuple, Point, Line } from '../../../dist/geometry.min.js';
+import { Vector, Tuple, Point, Line } from '../../../script/geometry/geometry.min.js';
 
 export const getColors = (context) => {
 	const { hover, focus, select, virtual, /* hold */ } = context;
