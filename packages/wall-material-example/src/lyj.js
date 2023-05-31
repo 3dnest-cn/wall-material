@@ -10,6 +10,13 @@ const app = new PIXI.Application({
 
 document.body.appendChild(app.view);
 
+//lyj
+const basicText = new PIXI.Text('乐有家');
+basicText.x = 1300;
+basicText.y = 20;
+
+app.stage.addChild(basicText);
+
 // singleDoor
 const singleDoorGraphicsA = new PIXI.Graphics();
 const singleDoorContextA = {

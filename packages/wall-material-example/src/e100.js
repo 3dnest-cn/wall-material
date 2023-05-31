@@ -11,6 +11,13 @@ const app = new PIXI.Application({
 
 document.body.appendChild(app.view);
 
+//e100
+const basicText = new PIXI.Text('E100');
+basicText.x = 1300;
+basicText.y = 20;
+
+app.stage.addChild(basicText);
+
 // singleDoor
 const singleDoorGraphicsA = new PIXI.Graphics();
 const singleDoorContextA = {
