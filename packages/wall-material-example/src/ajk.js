@@ -99,3 +99,16 @@ app.stage.addChild(WM.Window.BoilerWindow(floorWindowGraphics, floorWindowContex
 
 floorWindowGraphics.x = 110;
 floorWindowGraphics.y = 360;
+
+// bealock
+const bealockGraphics = new PIXI.Graphics();
+const bealockContext = {
+	width: 120,
+	height: 20,
+	scale: 10
+};
+
+app.stage.addChild(WM.Door.Bealock(bealockGraphics, bealockContext));
+
+bealockGraphics.x = 310;
+bealockGraphics.y = 410;
