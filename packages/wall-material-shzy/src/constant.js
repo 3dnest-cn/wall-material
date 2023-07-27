@@ -10,20 +10,20 @@ export const ALPHA = .5;
 
 export const COLOR = {
 	stateless: {
-		line: 0xbbbbbb,
-		arcLine: 0xbbbbbb,
+		line: 0x000000,
+		arcLine: 0x000000,
 		fill: 0xffffff,
 		windowFill: 0xcccccc
 	},
 	hover: {
 		line: 0x7ae2ff,
-		arcLine: 0xbbbbbb,
+		arcLine: 0x7ae2ff,
 		fill: 0xffffff,
 		windowFill: 0xcccccc
 	},
 	select: {
 		line: 0x3e82f7,
-		arcLine: 0xbbbbbb,
+		arcLine: 0x3e82f7,
 		fill: 0xffffff,
 		windowFill: 0xcccccc
 	},
