@@ -1,0 +1,30 @@
+{
+  "name": "@3dnest/wall-material-shzy",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "zhangsen <zhangsen@3dnest.cn>",
+  "homepage": "https://github.com/3dnest-cn/wall-material/tree/main/packages/wall-material-shzy#readme",
+  "license": "MIT",
+  "main": "index.js",
+	"type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3dnest-cn/wall-material.git"
+  },
+  "scripts": {
+		"build": "rollup --config script/rollup.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/3dnest-cn/wall-material/issues"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "23.0.2",
+    "@rollup/plugin-json": "5.0.1",
+    "@rollup/plugin-node-resolve": "15.0.1",
+    "rollup": "2.79.1",
+    "rollup-plugin-terser": "7.0.2"
+  }
+}

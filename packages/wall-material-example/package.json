@@ -22,6 +22,7 @@
     "@3dnest/wall-material-e100": "^0.0.5",
     "@3dnest/wall-material-lyj": "^0.0.4",
     "@3dnest/wall-material-original": "^0.0.8",
+    "@3dnest/wall-material-shzy": "^0.0.0",
     "pixi.js": "^7.0.2"
   },
   "devDependencies": {
