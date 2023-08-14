@@ -17,7 +17,7 @@ export const DoubleDoor = (graphics, context) => {
 		.arc(width, height / 2, width / 2, PI, -PI / 2)
 		.lineTo(width, height / 2)
 		.lineTo(width / 2, height / 2)
-		.beginFill(color.fill, 1)
+		.beginFill(color.fill, ALPHA)
 		.drawRect(0, height / 2 - width / 2, doorThickness, width / 2)
 		.drawRect(width - doorThickness, height / 2 - width / 2, doorThickness, width / 2)
 		.endFill();

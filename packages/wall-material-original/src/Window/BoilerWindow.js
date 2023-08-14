@@ -10,7 +10,7 @@ export const BoilerWindow = (graphics, context) => {
 		.beginFill(color.fill, ALPHA)
 		.drawRect(0, -(sillThickness + windowThickness), width, (sillThickness + windowThickness + height))
 		.endFill()
-		.beginFill(color.fill)
+		.beginFill(color.fill, ALPHA)
 		.lineStyle(lineWidth, color.line)
 		.moveTo(0, 0)
 		.lineTo(0, height)

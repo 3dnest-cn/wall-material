@@ -14,7 +14,7 @@ export const SingleDoor = (graphics,context) => {
 		.arc(width * flipSign, height / 2, width, -PI / 2 * flipSign - PI / 2, -PI * flipSign / 2)
 		.lineTo(width * flipSign, height / 2)
 		.lineTo(0, height / 2 - width + flipSign * width)
-		.beginFill(color.fill, 1)
+		.beginFill(color.fill, ALPHA)
 		.drawRect((width - doorThickness) * flipSign, height / 2 - width, doorThickness, width)
 		.endFill();
 

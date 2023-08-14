@@ -1,4 +1,4 @@
-import { LINE_WIDTH } from '../constant.js';
+import { LINE_WIDTH, ALPHA } from '../constant.js';
 import { getColors } from '../utils.js';
 
 // width: 1450,
@@ -12,7 +12,7 @@ export const ParentDoor = (graphics, context) => {
 
 	graphics
 		.lineStyle(lineWidth, color.line)
-		.beginFill(color.fill)
+		.beginFill(color.fill, ALPHA)
 		.drawRect(0, 0, width, height)
 		.moveTo(0, height / 3)
 		.lineTo(width, height / 3)
