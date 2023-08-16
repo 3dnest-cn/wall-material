@@ -18,8 +18,8 @@ export const setBealockLineColor = color => COLOR.stateless.bealockLine = color;
 
 export const setBealockFillColor = color => COLOR.stateless.bealockFill = color;
 
-export const setColor = (lineColor = 0xffffff, arcLineColor = 0xffffff,
-	bealockLineColor = 0x000000, bealockFillColor = 0xffffff) => {
+export const setColor = (lineColor = 0x000000, arcLineColor = 0x000000,
+	bealockLineColor = 0xd9d9d9, bealockFillColor = 0x000000) => {
 	COLOR.stateless.line = lineColor;
 	COLOR.stateless.arcLine = arcLineColor;
 	COLOR.stateless.bealockLine = bealockLineColor;
