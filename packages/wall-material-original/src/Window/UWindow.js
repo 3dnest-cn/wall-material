@@ -1,4 +1,4 @@
-import { LINE_WIDTH, ALPHA } from '../constant.js';
+import { LINE_WIDTH, STATE } from '../constant.js';
 import { getColors, getOutline } from '../utils.js';
 
 export const UWindow = (graphics, context) => {
@@ -7,13 +7,14 @@ export const UWindow = (graphics, context) => {
 		leftWallThickness, centerWallThickness, rightWallThickness,
 		scale
 	} = context;
+	const { alpha } = STATE;
 
 	const lineWidth = LINE_WIDTH / scale;
 	const color = getColors(context);
 
 	graphics
 		.lineStyle(lineWidth, color.line)
-		.beginFill(color.fill, ALPHA)
+		.beginFill(color.fill, alpha)
 		.moveTo(0, 0)
 		.lineTo(centerWidtn, 0)
 		.lineTo(centerWidtn, rightWidth)
@@ -37,6 +38,7 @@ export const UWindow = (graphics, context) => {
 
 export const UPathWindow = (graphics, context) => {
 	const { scale, main, cross } = context;
+	const { alpha } = STATE;
 
 	const lineWidth = LINE_WIDTH / scale;
 	const color = getColors(context);
@@ -44,7 +46,7 @@ export const UPathWindow = (graphics, context) => {
 
 	graphics
 		.lineStyle(lineWidth, color.line)
-		.beginFill(color.fill, ALPHA)
+		.beginFill(color.fill, alpha)
 		.drawPolygon(outline.flat())
 		.endFill();
 

@@ -1,18 +1,18 @@
-import { LINE_WIDTH, ALPHA } from '../constant.js';
+import { LINE_WIDTH, STATE } from '../constant.js';
 import { getColors } from '../utils.js';
 
 // width: 1450,
 export const ParentDoor = (graphics, context) => {
 	const { width, height, fliped, scale, /* state = 'stateless' */ } = context;
+	const { alpha } = STATE;
 
 	const flipSign = fliped ? 1 : 0;
-
 	const lineWidth = LINE_WIDTH / scale;
 	const color = getColors(context);
 
 	graphics
 		.lineStyle(lineWidth, color.line)
-		.beginFill(color.fill, ALPHA)
+		.beginFill(color.fill, alpha)
 		.drawRect(0, 0, width, height)
 		.moveTo(0, height / 3)
 		.lineTo(width, height / 3)

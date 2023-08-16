@@ -1,9 +1,11 @@
-import { LINE_WIDTH, ALPHA } from '../constant.js';
+import { LINE_WIDTH, STATE } from '../constant.js';
 import { getColors } from '../utils.js';
 
 
 export const DoorWay = (graphics, context) => {
 	const { width, height, scale } = context;
+	const { emptyAlpha } = STATE;
+
 	const lineWidth = LINE_WIDTH / scale;
 	const segment = 100 / scale;
 	const blank = 100 / scale;
@@ -13,7 +15,7 @@ export const DoorWay = (graphics, context) => {
 		: 1;
 
 	graphics
-		.beginFill(color.fill, ALPHA)
+		.beginFill(color.fill, emptyAlpha)
 		.drawRect(0, 0, width, height)
 		.endFill()
 		.lineStyle(lineWidth, color.line)

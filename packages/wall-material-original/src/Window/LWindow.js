@@ -1,4 +1,4 @@
-import { LINE_WIDTH, ALPHA } from '../constant.js';
+import { LINE_WIDTH, STATE } from '../constant.js';
 import { getColors , getOutline } from '../utils.js';
 
 export const LWindow = (graphics, context) => {
@@ -6,13 +6,14 @@ export const LWindow = (graphics, context) => {
 		leftWidth, rightWidth,
 		leftWallThickness, rightWallThickness, scale
 	} = context;
+	const { alpha } = STATE;
 
 	const lineWidth = LINE_WIDTH / scale;
 	const color = getColors(context);
 
 	graphics
 		.lineStyle(lineWidth, color.line)
-		.beginFill(color.fill, ALPHA)
+		.beginFill(color.fill, alpha)
 		.moveTo(-leftWallThickness / 2, -rightWallThickness / 2)
 		.lineTo(rightWidth - leftWallThickness / 2, -rightWallThickness / 2)
 		.lineTo(rightWidth - leftWallThickness / 2, rightWallThickness / 2)
@@ -33,6 +34,7 @@ export const LWindow = (graphics, context) => {
 
 export const LPathWindow = (graphics, context) => {
 	const { scale, main, cross } = context;
+	const { alpha } = STATE;
 
 	const lineWidth = LINE_WIDTH / scale;
 	const color = getColors(context);
@@ -40,7 +42,7 @@ export const LPathWindow = (graphics, context) => {
 
 	graphics
 		.lineStyle(lineWidth, color.line)
-		.beginFill(color.fill, ALPHA)
+		.beginFill(color.fill, alpha)
 		.drawPolygon(outline.flat())
 		.endFill();
 

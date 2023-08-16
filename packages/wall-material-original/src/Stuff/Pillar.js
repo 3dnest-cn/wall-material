@@ -1,15 +1,14 @@
-import { LINE_WIDTH } from '../constant.js';
-import { getColors } from '../utils.js';
+import { LINE_WIDTH, STATE } from '../constant.js';
 
 export const Pillar = (graphics, context) => {
 	const { width, height, scale } = context;
+	const { pillarColor } = STATE;
 
 	const lineWidth = LINE_WIDTH / scale;
-	const color = getColors(context);
 
 	graphics
-		.lineStyle(lineWidth, color.line)
-		.beginFill(0x333333)
+		.lineStyle(lineWidth, pillarColor)
+		.beginFill(pillarColor)
 		.drawRect(0, 0, width, height)
 		.endFill();
 

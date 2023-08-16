@@ -1,19 +1,19 @@
-import { LINE_WIDTH, ALPHA } from '../constant.js';
+import { LINE_WIDTH, STATE } from '../constant.js';
 import { getColors } from '../utils.js';
-
 
 export const Bealock = (graphics, context) => {
 	const { width, height, scale} = context;
+	const { emptyAlpha } = STATE;
+
 	const lineWidth = LINE_WIDTH / scale;
 	const rectWidth = 100 / scale;
 	const color = getColors(context);
-	const rectColor = 0xd9d9d9;
 
 	graphics
-		.beginFill(color.fill, ALPHA)
+		.beginFill(color.fill, emptyAlpha)
 		.drawRect(0, 0, width, height)
 		.endFill(0, 0, )
-		.beginFill(rectColor)
+		.beginFill(color.bealockLine)
 		.drawRect(0, 0, rectWidth, height)
 		.drawRect(width - rectWidth, 0, rectWidth, height)
 		.endFill()

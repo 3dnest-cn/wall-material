@@ -1,8 +1,9 @@
-import { LINE_WIDTH, ALPHA } from '../constant.js';
+import { LINE_WIDTH, STATE } from '../constant.js';
 import { getColors , getOutline } from '../utils.js';
 
 export const ArcWindow = (graphics, context) => {
 	const { scale, main, cross } = context;
+	const { alpha } = STATE;
 
 	const lineWidth = LINE_WIDTH / scale;
 	const color = getColors(context);
@@ -10,7 +11,7 @@ export const ArcWindow = (graphics, context) => {
 
 	graphics
 		.lineStyle(lineWidth, color.line)
-		.beginFill(color.fill, ALPHA)
+		.beginFill(color.fill, alpha)
 		.drawPolygon(outline.flat())
 		.endFill();
 
