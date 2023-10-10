@@ -112,3 +112,30 @@ app.stage.addChild(WM.Door.Bealock(bealockGraphics, bealockContext));
 
 bealockGraphics.x = 310;
 bealockGraphics.y = 410;
+
+// LWindow
+// const LWindowGraphicsA = new PIXI.Graphics();
+// const LWindowContextA = {
+// 	leftWidth: 150,
+// 	rightWidth: 150,
+// 	leftWallThickness: 20,
+// 	rightWallThickness: 20,
+// 	scale: 10
+// };
+
+// app.stage.addChild(WM.Window.LWindow(LWindowGraphicsA, LWindowContextA));
+
+// LWindowGraphicsA.x = 30;
+// LWindowGraphicsA.y = 470;
+
+const LWindowGraphicsB = new PIXI.Graphics();
+const LWindowContextB = {
+	main: [[0,0], [100,0], [100,100]],
+	cross: [25, 25],
+	scale: 10
+};
+
+app.stage.addChild(WM.Window.LPathWindow(LWindowGraphicsB, LWindowContextB));
+
+LWindowGraphicsB.x = 30;
+LWindowGraphicsB.y = 670;

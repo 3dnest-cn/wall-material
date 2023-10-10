@@ -32,26 +32,24 @@ export const LWindow = (graphics, context) => {
 };
 
 export const LPathWindow = (graphics, context) => {
-	// const { scale, main, cross } = context;
+	const { scale, main, cross } = context;
 
-	// const lineWidth = LINE_WIDTH / scale;
-	// const color = getColors(context);
-	// const outline = getOutline(main, cross);
+	const lineWidth = LINE_WIDTH / scale;
+	const color = getColors(context);
+	const outline = getOutline(main, cross);
 
-	// graphics
-	// 	.lineStyle(lineWidth, color.line)
-	// 	.beginFill(color.fill)
-	// 	.drawPolygon(outline.flat())
-	// 	.endFill();
+	const smallCross = cross.map(c => c / 3);
+	const smallOutline = getOutline(main, smallCross);
 
-	// graphics.moveTo(...main[0]);
+	graphics
+		.lineStyle(lineWidth, color.line)
+		.beginFill(color.fill)
+		.drawPolygon(outline.flat())
+		.drawPolygon(smallOutline.flat())
+		.endFill();
 
-	// for (let i = 1; i < main.length; i++) {
-	// 	graphics.lineTo(...main[i]);
-	// }
-
-	// graphics.pivot.x = 0;
-	// graphics.pivot.y = 0;
+	graphics.pivot.x = 0;
+	graphics.pivot.y = 0;
 
 	return graphics;
 };
