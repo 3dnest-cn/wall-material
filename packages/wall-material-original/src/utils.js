@@ -2,7 +2,14 @@ import { Vector, Tuple, Point, Line } from '@3dnest/spoke-geometry';
 import { COLOR } from './constant.js';
 
 export const getColors = (context) => {
-	const { hover, focus, select, virtual, /* hold */ } = context;
+	const { color, hover, focus, select, virtual, /* hold */ } = context;
+
+	if (color) return {
+		line: color,
+		arcLine: color,
+		fill: 0xffffff,
+		windowFill: 0xcccccc,
+	};
 
 	return select || focus
 		? COLOR.select
