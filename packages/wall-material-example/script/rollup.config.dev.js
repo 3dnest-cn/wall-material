@@ -15,8 +15,8 @@ export default defineConfig({
 	// input: path.join(__dirname, '../src/e100.js'),
 	// input: path.join(__dirname, '../src/shzy.js'),
 	// input: path.join(__dirname, '../src/ajk.js'),
-	input: path.join(__dirname, '../src/lyj.js'),
-	// input: path.join(__dirname, '../src/original.js'),
+	// input: path.join(__dirname, '../src/lyj.js'),
+	input: path.join(__dirname, '../src/original.js'),
 	output: {
 		dir: DIST_DIR,
 		sourcemap: 'inline',

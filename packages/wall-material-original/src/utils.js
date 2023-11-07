@@ -20,13 +20,17 @@ export const getColors = (context) => {
 				: COLOR.stateless;
 };
 
-const getLine = (originPoint, targetPoint, offset) => {
-	const normal = Vector.rotate90(
-		...Vector.normalize(
-			...Vector.fromBothPoint(...originPoint, ...targetPoint)
-		),
-	);
+const PI = Math.PI;
 
+const getNormal = (originPoint, targetPoint, rotation = PI / 2) => {
+	return Vector.rotate(
+		...Vector.normalize(...Vector.fromBothPoint(...originPoint, ...targetPoint)),
+		rotation
+	);
+};
+
+const getLine = (originPoint, targetPoint, offset, rotation) => {
+	const normal = getNormal(originPoint, targetPoint, rotation);
 	const translation = Vector.multiply(...normal, offset);
 
 	const line = Tuple.Line(
@@ -85,4 +89,55 @@ export const getOutline = (main, cross) => {
 	outline = Object.values(obj);
 
 	return outline;
+};
+
+export const getBoilerWindowMedian = (main, wallThickness, sillThickness, windowThickness) => {
+	const median = [];
+
+	for (let i = 0; i < main.length; i++) {
+		if (i === 0) {
+			const thisNormal = [...getNormal(main[0], main[1], PI / 2)];
+			const thisTranslation = [...Vector.multiply(...thisNormal, wallThickness[0] / 2)];
+
+			const thatNormal = [...getNormal(main[0], main[1], -PI / 2)];
+			const thatTranslation = [...Vector.multiply(...thatNormal,
+				(wallThickness[0] / 2 + sillThickness[0] + windowThickness / 2))];
+
+			median.push([...Point.translate(...main[0], ...thisTranslation)]);
+			median.push([...Point.translate(...main[0], ...thatTranslation)]);
+		} 	else if (i !== 0 && i !== main.length - 1) {
+			const previousOffset = wallThickness[i - 1] / 2 + sillThickness[i - 1] + windowThickness / 2;
+			const previousLine = [...getLine(main[i -1], main[i], previousOffset, -PI / 2)];
+
+			const nextOffset = wallThickness[i] / 2 + sillThickness[i] + windowThickness / 2;
+			const nextLine = [...getLine(main[i], main[i + 1], nextOffset, -PI / 2)];
+
+			if (Line.intersectLine(...previousLine, ...nextLine)) {
+				median.push([...Line.intersectLine(...previousLine, ...nextLine)]);
+			}
+		} else {
+			const origin = main[main.length - 2], target = main[main.length - 1];
+			const thisNormal = [...getNormal(origin, target, PI / 2)];
+			const thisTranslation = [...Vector.multiply(...thisNormal, wallThickness[wallThickness.length - 1] / 2)];
+
+			const thatNormal = [...getNormal(origin, target, -PI / 2)];
+			const thatTranslation = [...Vector.multiply(...thatNormal,
+				(wallThickness[wallThickness.length - 1] / 2 + sillThickness[sillThickness.length - 1] + windowThickness / 2))];
+
+			median.push([...Point.translate(...target, ...thatTranslation)]);
+			median.push([...Point.translate(...target, ...thisTranslation)]);
+		}
+	}
+
+	return median;
+};
+
+export const getBoilerWindowMedianCross = (median, windowThickness) => {
+	const cross = [];
+
+	for (let i = 0; i < median.length - 1; i++) {
+		cross.push(windowThickness);
+	}
+
+	return cross;
 };

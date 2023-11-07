@@ -308,6 +308,48 @@ app.stage.addChild(WM.Window.LBoilerWindow(LBoilerWindowGraphicsB, LBoilerWindow
 LBoilerWindowGraphicsB.x = 550;
 LBoilerWindowGraphicsB.y = 700;
 
+//LPathBoilerWindow
+const LPathBoilerWindowGraphicsA = new PIXI.Graphics();
+const LPathBoilerWindowContextA = {
+	main: [[100, 120], [100,70], [140,70]],
+	cross: [20, 20],
+	sillThickness: [50, 20],
+	windowThickness: 20,
+	scale: 10
+};
+
+app.stage.addChild(WM.Window.LPathBoilerWindow(LPathBoilerWindowGraphicsA, LPathBoilerWindowContextA));
+
+LPathBoilerWindowGraphicsA.x = 430;
+LPathBoilerWindowGraphicsA.y = 820;
+
+const LPathBoilerWindowGraphicsB = new PIXI.Graphics();
+const LPathBoilerWindowContextB = {
+	main: [[30,70], [130,70]],
+	cross: [20],
+	sillThickness: [20],
+	windowThickness: 20,
+	scale: 10
+};
+
+app.stage.addChild(WM.Window.LPathBoilerWindow(LPathBoilerWindowGraphicsB, LPathBoilerWindowContextB));
+
+LPathBoilerWindowGraphicsB.x = 600;
+LPathBoilerWindowGraphicsB.y = 850;
+
+const LPathBoilerWindowGraphicsC = new PIXI.Graphics();
+const LPathBoilerWindowContextC = {
+	main: [[55,-40], [55,-75], [115,-75], [115,-40]],
+	cross: [10,10,10],
+	sillThickness: [10,20,10],
+	windowThickness: 20,
+	scale: 10
+};
+
+app.stage.addChild(WM.Window.UPathBoilerWindow(LPathBoilerWindowGraphicsC, LPathBoilerWindowContextC));
+
+LPathBoilerWindowGraphicsC.x = 800;
+LPathBoilerWindowGraphicsC.y = 980;
 // UBoilerWindow
 const UBoilerWindowGraphicsA = new PIXI.Graphics();
 const UBoilerWindowContextA = {
