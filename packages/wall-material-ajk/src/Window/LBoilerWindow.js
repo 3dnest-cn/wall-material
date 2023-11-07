@@ -1,5 +1,5 @@
 import { LINE_WIDTH } from '../constant.js';
-import { getColors } from '../utils.js';
+import { getColors, getOutline } from '../utils.js';
 
 export const LBoilerWindow = (graphics, context) => {
 	// const {
@@ -44,6 +44,29 @@ export const LBoilerWindow = (graphics, context) => {
 
 	// graphics.pivot.x = rightWidth / 2;
 	// graphics.pivot.y = rightWallThickness / 2;
+
+	return graphics;
+};
+
+export const LPathBoilerWindow = (graphics, context) => {
+	const { scale, main, cross } = context;
+
+	const lineWidth = LINE_WIDTH / scale;
+	const color = getColors(context);
+	const outline = getOutline(main, cross);
+
+	const smallCross = cross.map(c => c / 3);
+	const smallOutline = getOutline(main, smallCross);
+
+	graphics
+		.lineStyle(lineWidth, color.line)
+		.beginFill(color.fill)
+		.drawPolygon(outline.flat())
+		.drawPolygon(smallOutline.flat())
+		.endFill();
+
+	graphics.pivot.x = 0;
+	graphics.pivot.y = 0;
 
 	return graphics;
 };

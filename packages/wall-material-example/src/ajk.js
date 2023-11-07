@@ -152,3 +152,15 @@ app.stage.addChild(WM.Window.LPathWindow(LWindowGraphicsB, LWindowContextB));
 
 LWindowGraphicsB.x = 30;
 LWindowGraphicsB.y = 670;
+
+const LWindowGraphicsC = new PIXI.Graphics();
+const LWindowContextC = {
+	main: [[0,0], [100,0], [100,100]],
+	cross: [25, 25],
+	scale: 10
+};
+
+app.stage.addChild(WM.Window.LPathBoilerWindow(LWindowGraphicsC, LWindowContextC));
+
+LWindowGraphicsC.x = 200;
+LWindowGraphicsC.y = 670;
