@@ -1,5 +1,5 @@
 import { LINE_WIDTH, STATE } from '../constant.js';
-import { getColors, getBoilerWindowMedian, getBoilerWindowMedianCross, getOutline } from '../utils.js';
+import { getColors, getBoilerWindowNewMain, getBoilerWindowMedian, getBoilerWindowMedianCross, getOutline } from '../utils.js';
 
 export const UBoilerWindow = (graphics, context) => {
 	const {
@@ -57,7 +57,8 @@ export const UPathBoilerWindow = (graphics, context) => {
 	const { main, cross, sillThickness, windowThickness, scale } = context;
 	const { alpha } = STATE;
 
-	const median = getBoilerWindowMedian(main, cross, sillThickness, windowThickness);
+	const newMain = getBoilerWindowNewMain(main, windowThickness);
+	const median = getBoilerWindowMedian(newMain, cross, sillThickness, windowThickness);
 	const medianCross = getBoilerWindowMedianCross(median, windowThickness);
 	const outline = getOutline(median, medianCross);
 

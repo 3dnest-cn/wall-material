@@ -311,9 +311,13 @@ LBoilerWindowGraphicsB.y = 700;
 //LPathBoilerWindow
 const LPathBoilerWindowGraphicsA = new PIXI.Graphics();
 const LPathBoilerWindowContextA = {
+	// main: [[140, 70], [100,70], [100,120]],
 	main: [[100, 120], [100,70], [140,70]],
+	// main: [[140, 0], [0,0], [0,140]],
+	// main: [[0, 140], [0,0], [140,0]],
 	cross: [20, 20],
-	sillThickness: [50, 20],
+	// sillThickness: [50, 20],
+	sillThickness: [20, 20],
 	windowThickness: 20,
 	scale: 10
 };
