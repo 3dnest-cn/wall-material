@@ -49,11 +49,11 @@ export const LBoilerWindow = (graphics, context) => {
 };
 
 export const LPathBoilerWindow = (graphics, context) => {
-	const { main, cross, sillThickness, windowThickness, scale } = context;
+	const { main, cross, sillThicknessList, windowThickness, scale } = context;
 	const { alpha } = STATE;
 
 	const newMain = getBoilerWindowNewMain(main, windowThickness);
-	const median = getBoilerWindowMedian(newMain, cross, sillThickness, windowThickness);
+	const median = getBoilerWindowMedian(newMain, cross, sillThicknessList, windowThickness);
 	const medianCross = getBoilerWindowMedianCross(median, windowThickness);
 	const outline = getOutline(median, medianCross);
 

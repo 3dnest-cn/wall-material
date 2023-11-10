@@ -105,7 +105,7 @@ export const getBoilerWindowNewMain = (main, windowThickness) => {
 	return newMain;
 };
 
-export const getBoilerWindowMedian = (main, wallThickness, sillThickness, windowThickness) => {
+export const getBoilerWindowMedian = (main, wallThickness, sillThicknessList, windowThickness) => {
 	const median = [];
 	let direction = 1;
 
@@ -122,15 +122,15 @@ export const getBoilerWindowMedian = (main, wallThickness, sillThickness, window
 
 			const thatNormal = [...getNormal(main[0], main[1], -PI / 2 * direction)];
 			const thatTranslation = [...Vector.multiply(...thatNormal,
-				(wallThickness[0] / 2 + sillThickness[0] + windowThickness / 2))];
+				(wallThickness[0] / 2 + sillThicknessList[0] + windowThickness / 2))];
 
 			median.push([...Point.translate(...main[0], ...thisTranslation)]);
 			median.push([...Point.translate(...main[0], ...thatTranslation)]);
 		} 	else if (i !== 0 && i !== main.length - 1) {
-			const previousOffset = wallThickness[i - 1] / 2 + sillThickness[i - 1] + windowThickness / 2;
+			const previousOffset = wallThickness[i - 1] / 2 + sillThicknessList[i - 1] + windowThickness / 2;
 			const previousLine = [...getLine(main[i -1], main[i], previousOffset, -PI / 2 * direction)];
 
-			const nextOffset = wallThickness[i] / 2 + sillThickness[i] + windowThickness / 2;
+			const nextOffset = wallThickness[i] / 2 + sillThicknessList[i] + windowThickness / 2;
 			const nextLine = [...getLine(main[i], main[i + 1], nextOffset, -PI / 2 * direction)];
 
 			if (Line.intersectLine(...previousLine, ...nextLine)) {
@@ -143,7 +143,7 @@ export const getBoilerWindowMedian = (main, wallThickness, sillThickness, window
 
 			const thatNormal = [...getNormal(origin, target, -PI / 2 * direction)];
 			const thatTranslation = [...Vector.multiply(...thatNormal,
-				(wallThickness[wallThickness.length - 1] / 2 + sillThickness[sillThickness.length - 1] + windowThickness / 2))];
+				(wallThickness[wallThickness.length - 1] / 2 + sillThicknessList[sillThicknessList.length - 1] + windowThickness / 2))];
 
 			median.push([...Point.translate(...target, ...thatTranslation)]);
 			median.push([...Point.translate(...target, ...thisTranslation)]);

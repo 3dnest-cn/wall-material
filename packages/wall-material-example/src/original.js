@@ -312,12 +312,12 @@ LBoilerWindowGraphicsB.y = 700;
 const LPathBoilerWindowGraphicsA = new PIXI.Graphics();
 const LPathBoilerWindowContextA = {
 	// main: [[140, 70], [100,70], [100,120]],
-	main: [[100, 120], [100,70], [140,70]],
+	main: [[100, 110], [100,70], [140,70]],
 	// main: [[140, 0], [0,0], [0,140]],
 	// main: [[0, 140], [0,0], [140,0]],
 	cross: [20, 20],
 	// sillThickness: [50, 20],
-	sillThickness: [20, 20],
+	sillThicknessList: [20, 20],
 	windowThickness: 20,
 	scale: 10
 };
@@ -331,7 +331,7 @@ const LPathBoilerWindowGraphicsB = new PIXI.Graphics();
 const LPathBoilerWindowContextB = {
 	main: [[30,70], [130,70]],
 	cross: [20],
-	sillThickness: [20],
+	sillThicknessList: [20],
 	windowThickness: 20,
 	scale: 10
 };
@@ -345,7 +345,7 @@ const LPathBoilerWindowGraphicsC = new PIXI.Graphics();
 const LPathBoilerWindowContextC = {
 	main: [[55,-40], [55,-75], [115,-75], [115,-40]],
 	cross: [10,10,10],
-	sillThickness: [10,20,10],
+	sillThicknessList: [10,20,10],
 	windowThickness: 20,
 	scale: 10
 };
