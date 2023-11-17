@@ -1,5 +1,5 @@
 import { LINE_WIDTH, STATE } from '../constant.js';
-import { getColors, getBoilerWindowNewMain, getBoilerWindowMedian, getBoilerWindowMedianCross, getOutline } from '../utils.js';
+import { getColors, getBoilerWindowMedian, getBoilerWindowBottomRect, getBoilerWindowMedianCross, getOutline } from '../utils.js';
 
 export const LBoilerWindow = (graphics, context) => {
 	const {
@@ -52,9 +52,9 @@ export const LPathBoilerWindow = (graphics, context) => {
 	const { main, cross, sillThicknessList, windowThickness, scale } = context;
 	const { alpha } = STATE;
 
-	const newMain = getBoilerWindowNewMain(main, windowThickness);
-	const median = getBoilerWindowMedian(newMain, cross, sillThicknessList, windowThickness);
+	const median = getBoilerWindowMedian(main, cross, sillThicknessList, windowThickness);
 	const medianCross = getBoilerWindowMedianCross(median, windowThickness);
+	const { startRect, endRect } = getBoilerWindowBottomRect(main, cross, windowThickness);
 	const outline = getOutline(median, medianCross);
 
 	const lineWidth = LINE_WIDTH / scale;
@@ -71,6 +71,10 @@ export const LPathBoilerWindow = (graphics, context) => {
 	for (let i = 1; i < median.length; i++) {
 		graphics.lineTo(...median[i]);
 	}
+
+	graphics
+		.drawPolygon(startRect.flat())
+		.drawPolygon(endRect.flat());
 
 	graphics.pivot.x = 0;
 	graphics.pivot.y = 0;

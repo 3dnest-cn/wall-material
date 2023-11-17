@@ -312,7 +312,7 @@ LBoilerWindowGraphicsB.y = 700;
 const LPathBoilerWindowGraphicsA = new PIXI.Graphics();
 const LPathBoilerWindowContextA = {
 	// main: [[140, 70], [100,70], [100,120]],
-	main: [[100, 110], [100,70], [140,70]],
+	main: [[100, 130], [100,70], [150,70]],
 	// main: [[140, 0], [0,0], [0,140]],
 	// main: [[0, 140], [0,0], [140,0]],
 	cross: [20, 20],

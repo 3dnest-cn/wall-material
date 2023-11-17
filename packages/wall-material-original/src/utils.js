@@ -22,15 +22,16 @@ export const getColors = (context) => {
 
 const PI = Math.PI;
 
-const getNormal = (originPoint, targetPoint, rotation = PI / 2) => {
+const getVector = (originPoint, targetPoint, rotation) => {
 	return Vector.rotate(
 		...Vector.normalize(...Vector.fromBothPoint(...originPoint, ...targetPoint)),
 		rotation
 	);
 };
 
-const getLine = (originPoint, targetPoint, offset, rotation) => {
-	const normal = getNormal(originPoint, targetPoint, rotation);
+//normal 法向量
+const getLine = (originPoint, targetPoint, offset, rotation = PI / 2) => {
+	const normal = getVector(originPoint, targetPoint, rotation);
 	const translation = Vector.multiply(...normal, offset);
 
 	const line = Tuple.Line(
@@ -91,20 +92,6 @@ export const getOutline = (main, cross) => {
 	return outline;
 };
 
-export const getBoilerWindowNewMain = (main, windowThickness) => {
-	const newMain = [...main];
-	const startNormal = [...getNormal(newMain[0], newMain[1], 0)];
-	const startTranslation = [...Vector.multiply(...startNormal, windowThickness / 2)];
-
-	const endNormal = [...getNormal(newMain[newMain.length - 1], newMain[newMain.length - 2], 0)];
-	const endTranslation = [...Vector.multiply(...endNormal, windowThickness / 2)];
-
-	newMain[0] = [...Point.translate(...newMain[0], ...startTranslation)];
-	newMain[newMain.length - 1] = [...Point.translate(...newMain[newMain.length - 1], ...endTranslation)];
-
-	return newMain;
-};
-
 export const getBoilerWindowMedian = (main, wallThickness, sillThicknessList, windowThickness) => {
 	const median = [];
 	let direction = 1;
@@ -117,15 +104,19 @@ export const getBoilerWindowMedian = (main, wallThickness, sillThicknessList, wi
 
 	for (let i = 0; i < main.length; i++) {
 		if (i === 0) {
-			const thisNormal = [...getNormal(main[0], main[1], PI / 2 * direction)];
+			const startVector = [...getVector(main[0], main[1], 0)];
+			const startTranslation = [...Vector.multiply(...startVector, windowThickness / 2)];
+			const startPoint = [...Point.translate(...main[0], ...startTranslation)];
+
+			const thisNormal = [...getVector(main[0], main[1], -PI / 2 * direction)];
 			const thisTranslation = [...Vector.multiply(...thisNormal, wallThickness[0] / 2)];
 
-			const thatNormal = [...getNormal(main[0], main[1], -PI / 2 * direction)];
+			const thatNormal = [...getVector(main[0], main[1], -PI / 2 * direction)];
 			const thatTranslation = [...Vector.multiply(...thatNormal,
 				(wallThickness[0] / 2 + sillThicknessList[0] + windowThickness / 2))];
 
-			median.push([...Point.translate(...main[0], ...thisTranslation)]);
-			median.push([...Point.translate(...main[0], ...thatTranslation)]);
+			median.push([...Point.translate(...startPoint, ...thisTranslation)]);
+			median.push([...Point.translate(...startPoint, ...thatTranslation)]);
 		} 	else if (i !== 0 && i !== main.length - 1) {
 			const previousOffset = wallThickness[i - 1] / 2 + sillThicknessList[i - 1] + windowThickness / 2;
 			const previousLine = [...getLine(main[i -1], main[i], previousOffset, -PI / 2 * direction)];
@@ -137,16 +128,21 @@ export const getBoilerWindowMedian = (main, wallThickness, sillThicknessList, wi
 				median.push([...Line.intersectLine(...previousLine, ...nextLine)]);
 			}
 		} else {
-			const origin = main[main.length - 2], target = main[main.length - 1];
-			const thisNormal = [...getNormal(origin, target, PI / 2 * direction)];
+			const origin = main[main.length - 1], target = main[main.length - 2];
+
+			const endVector = [...getVector(origin, target, 0)];
+			const endTranslation = [...Vector.multiply(...endVector, windowThickness / 2)];
+			const endPoint =  [...Point.translate(...origin, ...endTranslation)];
+
+			const thisNormal = [...getVector(origin, target, PI / 2 * direction)];
 			const thisTranslation = [...Vector.multiply(...thisNormal, wallThickness[wallThickness.length - 1] / 2)];
 
-			const thatNormal = [...getNormal(origin, target, -PI / 2 * direction)];
+			const thatNormal = [...getVector(origin, target, PI / 2 * direction)];
 			const thatTranslation = [...Vector.multiply(...thatNormal,
 				(wallThickness[wallThickness.length - 1] / 2 + sillThicknessList[sillThicknessList.length - 1] + windowThickness / 2))];
 
-			median.push([...Point.translate(...target, ...thatTranslation)]);
-			median.push([...Point.translate(...target, ...thisTranslation)]);
+			median.push([...Point.translate(...endPoint, ...thatTranslation)]);
+			median.push([...Point.translate(...endPoint, ...thisTranslation)]);
 		}
 	}
 
@@ -161,4 +157,75 @@ export const getBoilerWindowMedianCross = (median, windowThickness) => {
 	}
 
 	return cross;
+};
+
+export const getBoilerWindowBottomRect = (main, wallThicknessList, windowThickness) => {
+	const getRect =  (origin, target, wallOffset) => {
+		const rect = [];
+
+		const vector = [...getVector(origin, target, 0)];
+		const thisVector = [...getVector(origin, target, PI / 2)];
+		const thatVector = [...getVector(origin, target, -PI / 2)];
+
+		const translation = [...Vector.multiply(...vector, windowThickness)];
+		const thisTranslation = [...Vector.multiply(...thisVector, wallOffset / 2)];
+		const thatTranslation = [...Vector.multiply(...thatVector, wallOffset / 2)];
+
+		const newPoint = [...Point.translate(...origin, ...translation)];
+
+		rect.push([...Point.translate(...origin, ...thisTranslation)]);
+		rect.push([...Point.translate(...newPoint, ...thisTranslation)]);
+		rect.push([...Point.translate(...newPoint, ...thatTranslation)]);
+		rect.push([...Point.translate(...origin, ...thatTranslation)]);
+
+		return rect;
+	};
+
+	const startWallOffset = wallThicknessList[0];
+	const endWallOffset = wallThicknessList[wallThicknessList.length - 1];
+
+	const startRect = getRect(main[0], main[1], startWallOffset);
+	const endRect = getRect(main[main.length -1], main[main.length - 2], endWallOffset);
+
+	return { startRect, endRect };
+};
+
+//暂时不用
+export const getBoilerWindowBottom = (main, wallThickness) => {
+	const bottom = [];
+	let direction = 1;
+
+	if (main.length > 2) {
+		const cw = Point.toLeftOfSegment(...main[1], ...main[0], ...main[main.length - 1]);
+
+		direction = cw ? -1 : 1;
+	}
+
+	for (let i = 0; i < main.length; i++) {
+		if (i === 0) {
+			const normal = [...getVector(main[0], main[1], PI / 2 * direction)];
+			const translation = [...Vector.multiply(...normal, wallThickness[0] / 2)];
+
+			bottom.push([...Point.translate(...main[0], ...translation)]);
+		} 	else if (i !== 0 && i !== main.length - 1) {
+			const previousOffset = wallThickness[i - 1] / 2;
+			const previousLine = [...getLine(main[i -1], main[i], previousOffset, PI / 2 * direction)];
+
+			const nextOffset = wallThickness[i] / 2;
+			const nextLine = [...getLine(main[i], main[i + 1], nextOffset, PI / 2 * direction)];
+
+			if (Line.intersectLine(...previousLine, ...nextLine)) {
+				bottom.push([...Line.intersectLine(...previousLine, ...nextLine)]);
+			}
+		} else {
+			const origin = main[main.length - 2], target = main[main.length - 1];
+			const normal = [...getVector(origin, target, PI / 2 * direction)];
+			const translation = [...Vector.multiply(...normal, wallThickness[wallThickness.length - 1] / 2)];
+
+			bottom.push([...Point.translate(...target, ...translation)]);
+		}
+	}
+
+	return bottom;
+
 };
