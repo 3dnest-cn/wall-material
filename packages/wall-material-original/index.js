@@ -6,13 +6,13 @@ import { STATE, COLOR } from './src/constant.js';
 
 export { Door, Window, Stuff };
 
-export const setAlpha = alpha => STATE.alpha = alpha;
+export const setAlpha = (alpha = 0.01 ) => STATE.alpha = alpha;
 
-export const setPillarColor = color => STATE.pillarColor = color;
+export const setPillarColor = (color = 0x333333) => STATE.pillarColor = color;
 
-export const setLineColor = color =>	COLOR.stateless.line = color;
+export const setLineColor = (color = 0x000000) =>	COLOR.stateless.line = color;
 
-export const setArcLineColor = color => COLOR.stateless.arcLine = color;
+export const setArcLineColor = (color = 0x000000) => COLOR.stateless.arcLine = color;
 
 export const setColor = (lineColor = 0x000000, arcLineColor = 0x000000) => {
 	COLOR.stateless.line = lineColor;
