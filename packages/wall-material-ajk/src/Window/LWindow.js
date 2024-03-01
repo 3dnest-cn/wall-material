@@ -38,15 +38,27 @@ export const LPathWindow = (graphics, context) => {
 	const color = getColors(context);
 	const outline = getOutline(main, cross);
 
-	const smallCross = cross.map(c => c / 3);
-	const smallOutline = getOutline(main, smallCross);
+	graphics.lineStyle(lineWidth, color.line);
 
-	graphics
-		.lineStyle(lineWidth, color.line)
-		.beginFill(color.fill)
-		.drawPolygon(outline.flat())
-		.drawPolygon(smallOutline.flat())
-		.endFill();
+	graphics.moveTo(...outline[0]);
+
+	for (let i = 1; i < outline.length / 2; i++) {
+		graphics.lineTo(...outline[i]);
+	}
+
+	graphics.moveTo(...outline[outline.length / 2]);
+
+	for (let i = outline.length / 2; i < outline.length; i++) {
+		graphics.lineTo(...outline[i]);
+	}
+
+	graphics.lineStyle(lineWidth * 2, color.middleLine);
+
+	graphics.moveTo(...main[0]);
+
+	for (let i = 1; i < main.length; i++) {
+		graphics.lineTo(...main[i]);
+	}
 
 	graphics.pivot.x = 0;
 	graphics.pivot.y = 0;

@@ -11,7 +11,7 @@ export const DoorWay = (graphics, context) => {
 		.beginFill(color.fill, .01)
 		.drawRect(0, 0, width, height)
 		.endFill()
-		.lineStyle(lineWidth, color.arcLine)
+		.lineStyle(lineWidth, color.line)
 		.moveTo(0, 0)
 		.lineTo(0, height)
 		.moveTo(width, 0)

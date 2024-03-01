@@ -10,11 +10,13 @@ export const BasicWindow = (graphics, context) => {
 	graphics
 		.lineStyle(lineWidth, color.line)
 		.beginFill(color.fill)
-		.drawRect(0, 0, width, height)
-		.moveTo(0, height / 3)
-		.lineTo(width, height / 3)
-		.moveTo(0, height * 2 / 3)
-		.lineTo(width, height * 2 / 3)
+		.moveTo(0, 0)
+		.lineTo(width, 0)
+		.moveTo(0, height)
+		.lineTo(width, height)
+		.lineStyle(lineWidth * 2, color.middleLine)
+		.moveTo(0, height / 2)
+		.lineTo(width, height / 2)
 		.endFill();
 
 	graphics.pivot.x = width / 2;

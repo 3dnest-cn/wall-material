@@ -10,18 +10,15 @@ export const SingleDoor = (graphics, context) => {
 	const color = getColors(context);
 
 	graphics
-		.lineStyle(lineWidth, color.arcLine)
 		.beginFill(color.fill, ALPHA)
-		.arc(width * flipSign, height / 2, width, - PI / 2 * flipSign - PI / 2, -PI * flipSign / 2)
-		.moveTo(width - width * flipSign, height / 2)
-		.lineTo(width - width * flipSign, height)
-		.lineTo(width * flipSign, height)
-		.lineTo(width * flipSign, height / 2 - width)
-		.endFill()
-		.beginFill(color.fill)
+		.lineStyle(lineWidth, color.middleLine)
+		.arc(width * flipSign, height / 2, width, -PI / 2 * flipSign - PI / 2, -PI * flipSign / 2)
+		.lineStyle(lineWidth, color.middleLine)
+		.lineTo(width * flipSign, height / 2)
+		.lineTo(0, height / 2 - width + flipSign * width)
+		.beginFill(color.fill, ALPHA)
 		.drawRect((width - doorThickness) * flipSign, height / 2 - width, doorThickness, width)
 		.endFill();
-
 
 	graphics.pivot.x = width / 2;
 	graphics.pivot.y = height / 2;

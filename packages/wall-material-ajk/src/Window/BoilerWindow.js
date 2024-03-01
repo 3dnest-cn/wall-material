@@ -10,15 +10,16 @@ export const BoilerWindow = (graphics, context) => {
 	graphics
 		.lineStyle(lineWidth, color.line)
 		.beginFill(color.fill)
-		.drawRect(0, 0, width, height)
-		.endFill()
-		.moveTo(0, height / 4)
-		.lineTo(width, height / 4)
-		.moveTo(0, 3 * height / 4)
-		.lineTo(width, 3 * height / 4)
-		.lineStyle(lineWidth * 2, color.line)
-		.moveTo(width / 2, height / 4)
-		.lineTo(width / 2, 3 * height / 4);
+		.moveTo(0, 0)
+		.lineTo(width, 0)
+		.moveTo(0, height)
+		.lineTo(width, height)
+		.lineStyle(lineWidth * 2, color.middleLine)
+		.moveTo(0, height / 2)
+		.lineTo(width, height / 2)
+		.moveTo(width / 2, 0)
+		.lineTo(width / 2, height)
+		.endFill();
 
 	graphics.pivot.x = width / 2;
 	graphics.pivot.y = height / 2;
