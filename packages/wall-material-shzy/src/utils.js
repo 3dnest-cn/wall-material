@@ -1,4 +1,4 @@
-import { Vector, Tuple, Point, Line } from '@3dnest/spoke-geometry';
+import { Vector, Tuple, Point, Line, Comparator } from '@3dnest/spoke-geometry';
 import { COLOR } from './constant.js';
 
 export const getColors = (context) => {
@@ -18,6 +18,10 @@ export const getColors = (context) => {
 			: virtual
 				? COLOR.virtual
 				: COLOR.stateless;
+};
+
+const samePoint = (arr1, arr2) => {
+	return Comparator.EQ(arr1[0], arr2[0]) && Comparator.EQ(arr1[1], arr2[1]);
 };
 
 const getLine = (originPoint, targetPoint, offset) => {
@@ -81,7 +85,14 @@ export const getOutline = (main, cross) => {
 	outline.push(...thisHalfOutline);
 	outline.push(...thatHalfOutline);
 
-	outline.forEach(item => obj[item] = item);
+	outline.forEach((item, index, arr) => {
+		if (index !== outline.length - 1) {
+			if (samePoint(item, arr[index + 1])) return;
+		}
+
+		obj[item] = item;
+	});
+
 	outline = Object.values(obj);
 
 	return outline;
