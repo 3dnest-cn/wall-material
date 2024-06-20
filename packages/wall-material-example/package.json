@@ -1,6 +1,6 @@
 {
   "name": "@3dnest/wall-material-example",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "> TODO: description",
   "author": "zhangsen <zhangsen@3dnest.cn>",
   "homepage": "https://github.com/3dnest-cn/wall-material/tree/main/packages/wall-material-example#readme",
@@ -18,7 +18,7 @@
     "url": "https://github.com/3dnest-cn/wall-material/issues"
   },
   "dependencies": {
-    "@3dnest/wall-material-ajk": "^0.0.9",
+    "@3dnest/wall-material-ajk": "^0.0.10",
     "@3dnest/wall-material-e100": "^0.0.5",
     "@3dnest/wall-material-lyj": "^0.0.7",
     "@3dnest/wall-material-original": "^0.0.21",
