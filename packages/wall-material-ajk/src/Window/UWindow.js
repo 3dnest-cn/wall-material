@@ -36,26 +36,36 @@ export const UWindow = (graphics, context) => {
 };
 
 export const UPathWindow = (graphics, context) => {
-	// const { scale, main, cross } = context;
+	const { scale, main, cross } = context;
 
-	// const lineWidth = LINE_WIDTH / scale;
-	// const color = getColors(context);
-	// const outline = getOutline(main, cross);
+	const lineWidth = LINE_WIDTH / scale;
+	const color = getColors(context);
+	const outline = getOutline(main, cross);
 
-	// graphics
-	// 	.lineStyle(lineWidth, color.line)
-	// 	.beginFill(color.fill)
-	// 	.drawPolygon(outline.flat())
-	// 	.endFill();
+	graphics.lineStyle(lineWidth, color.line);
 
-	// graphics.moveTo(...main[0]);
+	graphics.moveTo(...outline[0]);
 
-	// for (let i = 1; i < main.length; i++) {
-	// 	graphics.lineTo(...main[i]);
-	// }
+	for (let i = 1; i < outline.length / 2; i++) {
+		graphics.lineTo(...outline[i]);
+	}
 
-	// graphics.pivot.x = 0;
-	// graphics.pivot.y = 0;
+	graphics.moveTo(...outline[outline.length / 2]);
+
+	for (let i = outline.length / 2; i < outline.length; i++) {
+		graphics.lineTo(...outline[i]);
+	}
+
+	graphics.lineStyle(lineWidth * 2, color.middleLine);
+
+	graphics.moveTo(...main[0]);
+
+	for (let i = 1; i < main.length; i++) {
+		graphics.lineTo(...main[i]);
+	}
+
+	graphics.pivot.x = 0;
+	graphics.pivot.y = 0;
 
 	return graphics;
 };

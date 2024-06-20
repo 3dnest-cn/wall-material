@@ -5,4 +5,4 @@ export { LWindow, LPathWindow } from './LWindow.js';
 export { UWindow, UPathWindow } from './UWindow.js';
 export { ArcWindow } from './ArcWindow.js';
 export { LBoilerWindow, LPathBoilerWindow } from './LBoilerWindow.js';
-export { UBoilerWindow } from './UBoilerWindow.js';
+export { UBoilerWindow, UPathBoilerWindow } from './UBoilerWindow.js';

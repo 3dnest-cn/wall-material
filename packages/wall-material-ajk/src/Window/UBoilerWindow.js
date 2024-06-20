@@ -1,5 +1,5 @@
 import { LINE_WIDTH } from '../constant.js';
-import { getColors } from '../utils.js';
+import { getColors, getOutline } from '../utils.js';
 
 export const UBoilerWindow = (graphics, context) => {
 	// const {
@@ -49,6 +49,41 @@ export const UBoilerWindow = (graphics, context) => {
 
 	// graphics.pivot.x = centerWidtn / 2;
 	// graphics.pivot.y = centerWallThickness / 2;
+
+	return graphics;
+};
+
+export const UPathBoilerWindow = (graphics, context) => {
+	const { scale, main, cross } = context;
+
+	const lineWidth = LINE_WIDTH / scale;
+	const color = getColors(context);
+	const outline = getOutline(main, cross);
+
+	graphics.lineStyle(lineWidth, color.line);
+
+	graphics.moveTo(...outline[0]);
+
+	for (let i = 1; i < outline.length / 2; i++) {
+		graphics.lineTo(...outline[i]);
+	}
+
+	graphics.moveTo(...outline[outline.length / 2]);
+
+	for (let i = outline.length / 2; i < outline.length; i++) {
+		graphics.lineTo(...outline[i]);
+	}
+
+	graphics.lineStyle(lineWidth * 2, color.middleLine);
+
+	graphics.moveTo(...main[0]);
+
+	for (let i = 1; i < main.length; i++) {
+		graphics.lineTo(...main[i]);
+	}
+
+	graphics.pivot.x = 0;
+	graphics.pivot.y = 0;
 
 	return graphics;
 };
